@@ -1,0 +1,209 @@
+:root{
+    --gold-color: #F6BB62;
+    --nearly-black:#0F2226;
+    --bottom-color:#1A2623;
+    --top-color:#455854;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+#main-container{
+    z-index: -2;
+    background: linear-gradient(0deg, var(--bottom-color) 0%, var(--top-color) 100%);
+    color: rgba(0, 0, 0, 0.5);
+    height: 100vh;
+    font-weight:800;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* ----------- DATE ----------- */
+
+
+#date-container{
+    right: 5vw;
+    top: 1.5vh;
+    position: absolute;
+}
+
+#date{
+    display:flex;
+    font-size: 6.4vw;
+}
+
+#date-date{
+    color: var(--gold-color);
+}
+
+#date-hour{
+    color:var(--nearly-black);
+}
+
+#date-gmt{
+    font-weight: normal;
+    position: absolute;
+    bottom:-50%;
+    right:0%;
+    color:var(--nearly-black);
+}
+
+
+/* ----------- COUNTDOWN ----------- */
+
+
+#countdownColumn{
+    font-family:'Courier New', Courier, monospace;
+    font-size: 12vw;
+    font-weight: normal;
+    color: var(--nearly-black);
+
+    left:10%;
+    position: absolute;
+
+    height: 80%;
+
+    top: 10%;
+
+    display:flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+#countdownPanel{
+    position: absolute;
+    background-color: var(--gold-color);
+    width:70vw;
+    height:50vh;
+    top:15vh;
+
+    z-index: 0;
+}
+
+
+/* ----------- BOTTOM INFORMATIONS ----------- */
+
+
+#bottomInformations{
+    font-size: 12px;
+    font-weight: normal;
+    color: #7474746e;
+    background-color: var(--bottom-color);
+    text-align: center;
+
+}
+
+
+/* ----------- SELECTOR ----------- */
+
+
+#tournamentSelectorContainer{
+    top: 70vh;
+    left:20vw;
+    width:60vw;
+}
+
+#daySelectorContainer{
+    top: 80vh;
+    left:20vw;
+    width:60vw;
+}
+
+.selectorContainer{
+    display:flex;
+    justify-content: space-between;
+    flex-direction: row;
+
+    position: absolute;
+}
+
+.selector{
+    font-size: 8.5vw;
+    color: var(--gold-color);
+    text-align: center;
+}
+
+.selectorButton{
+    background-color:var(--gold-color);
+    width:5vw;
+    height:5vw;
+}
+
+.selectorButtonContainer{
+    display:flex;
+    justify-content:space-around;
+    flex-direction: column;
+}
+
+
+/* ----------- IMAGE ----------- */
+
+
+#image{
+    background-color: var(--nearly-black);
+    position: absolute;
+    width:70vw;
+    height:50vh;
+    top:10vh;
+    right:0;
+    z-index: 1;
+}
+
+
+
+/* ----------- DROPDOWN ----------- */ 
+
+/* Dropdown Button */
+.dropbtn {
+    background-color:var(--nearly-black);
+    color: var(--gold-color);
+    padding: 4vw;
+    width: 20vw;
+    font-size: 5vw;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+}
+
+/* Dropdown button on hover & focus */
+/*.dropbtn:hover, .dropbtn:focus {
+    background-color: #2980B9;
+}*/
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+    position: absolute;
+    left: 5vw;
+    top: 1.5vh;
+    display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    background-color: var(--gold-color);
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 50vh;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.8);
+    z-index: 1;
+    overflow: auto;
+}
+
+/* Links inside the dropdown */
+.dropdown-item {
+    background-color:var(--bottom-color);
+    color: var(--gold-color);
+    text-align: center;
+    padding: 4vw;
+    text-decoration: none;
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+/*.dropdown-content a:hover {background-color: #ddd}
+*/
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+.show {display:block;}

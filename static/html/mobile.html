@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>whenisnextlolclash</title>
+    <link rel="stylesheet" href="style/mobile.css">
+</head>
+
+
+<body>
+    <div id="main-container">
+        <div class="dropdown" id="regionSelectorContainer">
+            <button class="dropbtn" id="regionSelectorDropbtn">EUW</button>
+            <div id="regionSelector" class="dropdown-content"></div>
+        </div>
+
+        <div id="date-container">
+            <div id="date">
+                <div id="date-date">-- JAN ----</div>
+                <div id="date-hour">--:--</div>
+            </div>
+
+            <div id="date-gmt">GMT+----</div>
+        </div>
+
+        <div id="image"></div>
+
+        <div id="countdownPanel">
+            <div id="countdownColumn">
+                <div class="countdownItem" id="days">--</div>
+                <div class="countdownItem" id="hours">--</div>
+                <div class="countdownItem" id="minutes">--</div>
+                <div class="countdownItem" id="seconds">--</div>
+            </div>
+        </div>
+
+        <div id="tournamentSelectorContainer" class="selectorContainer">
+            <div class="selectorButtonContainer">
+                <div class="selectorButton" id="tournamentSelectorPrevious"></div>
+            </div>
+            <div class="selector" id="tournamentSelector">--</div>
+            <div class="selectorButtonContainer">
+                <div class="selectorButton" id="tournamentSelectorNext"></div>
+            </div>
+        </div>
+
+        <div id="daySelectorContainer" class="selectorContainer">
+            <div class="selectorButtonContainer">
+                <div class="selectorButton" id="daySelectorPrevious"></div>
+            </div>
+            <div class="selector" id="daySelector">--</div>
+            <div class="selectorButtonContainer">
+                <div class="selectorButton" id="daySelectorNext"></div>
+            </div>
+        </div>
+        
+    </div>
+
+    <div id="bottomInformations">
+        <div id="lastupdate"></div>
+        <div id="riotDisclaimer">"whenisnextlolclash.com" was created under Riot Games' "Legal Jibber Jabber" policy using assets owned by Riot Games.  Riot Games does not endorse or sponsor this project.</div>
+    </div>
+</body>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="script/log.js"></script>
+<script src="script/utils.js"></script>
+<script src="script/clashList.js"></script>
+<script src="script/mobile.js"></script>
+
+</html>

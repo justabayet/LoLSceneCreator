@@ -1,0 +1,26 @@
+{
+  "name": "whenisnextlolclash",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app",
+    "dev": "nodemon app"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Thuirox/whenisnextlolclash.git"
+  },
+  "author": "Anthony Bayet",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Thuirox/whenisnextlolclash/issues"
+  },
+  "homepage": "https://github.com/Thuirox/whenisnextlolclash#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-device": "^0.4.2",
+    "nodemon": "^2.0.7"
+  }
+}
