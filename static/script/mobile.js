@@ -107,7 +107,7 @@ getClashData();
 
 function setDateDiv(date){
     $("#date-date").html(`${("0" + date.getDate()).substr(-2)} ${month[date.getMonth()]} ${date.getFullYear()}`);
-    $("#date-hour").html(`${("0" + date.getHours()).substr(-2)}:${("0" + date.getMinutes()).substr(-2)}`);
+    $("#date-hour").html(`${("0" + date.getHours()).substr(-2)}:${("0" + date.getMinutes()).substr(-2)}` + "*");
     $("#date-gmt").html(`${date.toString().split(' ')[5]}`);
 }
 
