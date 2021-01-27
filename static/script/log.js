@@ -1,4 +1,4 @@
-class Log{
+/*class Log{
     static isDebugMode = true;
 
     static debug(content){
@@ -8,4 +8,13 @@ class Log{
     static error(content){
         console.log(`ERROR : ${content}`);
     }
-}
+}*/
+
+let Log = {
+    debug:(abc)=>{
+        console.log(abc);
+    },
+    error:(content)=>{
+        console.log(`ERROR : ${content}`);
+    }
+};

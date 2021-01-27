@@ -1,6 +1,17 @@
 let clashList = new ClashList();
 let updateCountdownLoop;
 
+function swapViews(){
+    $("#image").removeClass("animationImageSwap");
+    $("#countdownPanel").removeClass("animationCountdownSwap");
+    $("#date-hider").removeClass("animationDateHiderSwap");
+    void document.getElementById("image").offsetWidth;
+
+    $("#countdownPanel").addClass("animationCountdownSwap");
+    $("#date-hider").addClass("animationDateHiderSwap");
+    $("#image").addClass("animationImageSwap");
+}
+
 function updateViews(){
     setDateDiv(new Date(clashList.getCurrentRegistrationTime()));
     $('#tournamentSelector').html((clashList.getCurrentPrimary().name).toUpperCase());
@@ -83,11 +94,12 @@ function getClashData(){
                 updateTime: 1611437305211
               };
         }
+        
         Log.debug(status);
         
         Log.debug(data.clashData);
         Log.debug(data.updateTime);
-    
+
         $("#lastupdate").html("Last update on : " + (new Date(data.updateTime)).toString());
     
         clashList.initialize(data.clashData);
@@ -133,32 +145,44 @@ function updateCountdown(){
 $('#tournamentSelectorPrevious').click(
     function() {
         Log.debug("tournamentSelectorPrevious clicked");
-        clashList.previousPrimary();
-        updateViews();
+        swapViews();
+        setTimeout(() => {
+            clashList.previousPrimary();
+            updateViews();
+        }, 500);
     }
 );
 
 $('#tournamentSelectorNext').click(
     function() {
         Log.debug("tournamentSelectorNext clicked");
-        clashList.nextPrimary();
-        updateViews();
+        swapViews();
+        setTimeout(() => {
+            clashList.nextPrimary();
+            updateViews();
+        }, 500);
     }
 );
 
 $('#daySelectorPrevious').click(
     function() {
         Log.debug("daySelectorPrevious clicked");
-        clashList.previousSecondary();
-        updateViews();
+        swapViews();
+        setTimeout(() => {
+            clashList.previousSecondary();
+            updateViews();
+        }, 500);
     }
 );
 
 $('#daySelectorNext').click(
     function() {
         Log.debug("daySelectorNext clicked");
-        clashList.nextSecondary();
-        updateViews();
+        swapViews();
+        setTimeout(() => {
+            clashList.nextSecondary();
+            updateViews();
+        }, 500);
     }
 );
 
