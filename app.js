@@ -38,7 +38,7 @@ try {
     console.error(err);
 
 }
-let dataA = {
+let mockData = {
     clashData: [
       {
         id: 2681,
@@ -100,13 +100,10 @@ let dataA = {
     updateTime: 1611437305211
   };
 
-let clashData = null;
+
 let updateTime = 0;
 const REGIONS = ['br1', 'eun1', 'euw1', 'jp1', 'kr', 'la1', 'la2', 'na1', 'oc1', 'tr1', 'ru'];
 let clashDataList = {};
-for(const region of REGIONS){
-    clashDataList[region] = dataA;
-}
 const baseTimeoutDuration = 30000;
 let timeoutDuration = baseTimeoutDuration;
 
@@ -149,8 +146,14 @@ function loopUpdateData(){
     setTimeout(loopUpdateData, timeoutDuration);
 }
 
-if(api_key !== "")
-    loopUpdateData();
+if(api_key !== ""){
+  loopUpdateData();
+
+} else {   
+  for(const region of REGIONS){
+    clashDataList[region] = mockData;
+  }
+}
 
 // "id": 2981,
 //         "themeId": 19,

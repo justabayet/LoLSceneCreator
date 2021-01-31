@@ -1,6 +1,7 @@
 let clashList = new ClashList();
 let updateCountdownLoop;
 
+
 function swapViews(){
     $("#image").removeClass("animationImageSwap");
     $("#countdownPanel").removeClass("animationCountdownSwap");
@@ -13,10 +14,18 @@ function swapViews(){
 }
 
 function updateViews(){
+    updateCoolDivs();
+    updateSelectors();
+}
+
+function updateCoolDivs(){
     setDateDiv(new Date(clashList.getCurrentRegistrationTime()));
+    updateCountdown();
+}
+
+function updateSelectors(){
     $('#tournamentSelector').html((clashList.getCurrentPrimary().name).toUpperCase());
     $('#daySelector').html((clashList.getCurrentSecondary().name).toUpperCase());
-    updateCountdown();
 }
 
 function createDropdown(){
@@ -105,7 +114,11 @@ function getClashData(){
         clashList.initialize(data.clashData);
     
         if(clashList.getCurrentSecondary()){
-            updateViews();
+            updateSelectors();
+            swapViews();
+            setTimeout(() => {
+                updateCoolDivs();
+            }, 500);
             updateCountdownLoop = setInterval( updateCountdown, 500);
     
         } else {
@@ -144,47 +157,40 @@ function updateCountdown(){
 
 $('#tournamentSelectorPrevious').click(
     function() {
-        Log.debug("tournamentSelectorPrevious clicked");
-        swapViews();
-        setTimeout(() => {
-            clashList.previousPrimary();
-            updateViews();
-        }, 500);
+        selectorClicked("tournamentSelectorPrevious clicked", ()=> clashList.previousPrimary());
     }
 );
 
 $('#tournamentSelectorNext').click(
     function() {
-        Log.debug("tournamentSelectorNext clicked");
-        swapViews();
-        setTimeout(() => {
-            clashList.nextPrimary();
-            updateViews();
-        }, 500);
+        selectorClicked("tournamentSelectorNext clicked", ()=> clashList.nextPrimary());
     }
 );
 
 $('#daySelectorPrevious').click(
     function() {
-        Log.debug("daySelectorPrevious clicked");
-        swapViews();
-        setTimeout(() => {
-            clashList.previousSecondary();
-            updateViews();
-        }, 500);
+        selectorClicked("daySelectorPrevious clicked", ()=> clashList.previousSecondary());
     }
 );
 
 $('#daySelectorNext').click(
     function() {
-        Log.debug("daySelectorNext clicked");
-        swapViews();
-        setTimeout(() => {
-            clashList.nextSecondary();
-            updateViews();
-        }, 500);
+        selectorClicked("daySelectorNext clicked", ()=> clashList.nextSecondary());
     }
 );
+
+function selectorClicked(msg, nextFunction){
+    Log.debug(msg);
+
+    nextFunction();
+
+    updateSelectors();
+    swapViews();
+    setTimeout(() => {
+        updateCoolDivs();
+    }, 500);
+
+}
 
 
 

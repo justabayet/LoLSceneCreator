@@ -29,6 +29,7 @@ class ClashList{
             this.addPrimary(clash.nameKey);
             this.addSecondary(clash.nameKey, clash.nameKeySecondary, clash.schedule);
         }
+        this.sort();
     }
 
     isPrimaryIn(key){
@@ -56,7 +57,7 @@ class ClashList{
 
     previousPrimary(){
         if(this.list.length === 1) return;
-        this.currentIdPrimary = (this.currentIdPrimary-1)%this.list.length;
+        this.currentIdPrimary = (this.currentIdPrimary-1+this.list.length)%this.list.length;
         this.currentIdSecondary = 0;
         Log.debug(this.currentIdPrimary);
     }
@@ -115,7 +116,25 @@ class ClashList{
     }
 
     sort(){
+        let tempList = [];
+        for(const elementToInsert of this.list){
+            if(tempList.length == 0){
+                tempList.push(elementToInsert);
+            } else {
+                let inserted = false;
+                for(let i = 0 ; i < tempList.length && !inserted; i++){
+                    if(elementToInsert.days[0].schedules[0].registrationTime < tempList[i].days[0].schedules[0].registrationTime){
+                        tempList.splice(i, 0, elementToInsert);
+                        inserted = true;
+                    }
+                }
+                
+                if(!inserted)
+                    tempList.push(elementToInsert);
+            }
+        }
 
+        this.list = tempList;
     }
 
     getCurrentRegistrationTime(){
