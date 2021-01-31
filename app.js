@@ -36,15 +36,76 @@ try {
 } catch (err) {
     console.log("Couldn't load api_key : Not requesting data from riot's API");
     console.error(err);
-}
 
+}
+let dataA = {
+    clashData: [
+      {
+        id: 2681,
+        themeId: 19,
+        nameKey: 'zaun',
+        nameKeySecondary: 'day_2',
+        schedule: [
+            {
+              id: 2801,
+              registrationTime: 1613922300000,
+              startTime: 1613937600000,
+              cancelled: false
+            }
+          ]
+      },
+      {
+        id: 2662,
+        themeId: 19,
+        nameKey: 'zaun',
+        nameKeySecondary: 'day_4',
+        schedule: [
+            {
+              id: 2782,
+              registrationTime: 1615131900000,
+              startTime: 1615147200000,
+              cancelled: false
+            }
+          ]
+      },
+      {
+        id: 2701,
+        themeId: 19,
+        nameKey: 'zaun',
+        nameKeySecondary: 'day_3',
+        schedule: [
+            {
+              id: 2821,
+              registrationTime: 1615045500000,
+              startTime: 1615060800000,
+              cancelled: false
+            }
+          ]
+      },
+      {
+        id: 2661,
+        themeId: 19,
+        nameKey: 'zaun',
+        nameKeySecondary: 'day_1',
+        schedule: [
+            {
+              id: 2781,
+              registrationTime: 1613835900000,
+              startTime: 1613851200000,
+              cancelled: false
+            }
+          ]
+      }
+    ],
+    updateTime: 1611437305211
+  };
 
 let clashData = null;
 let updateTime = 0;
 const REGIONS = ['br1', 'eun1', 'euw1', 'jp1', 'kr', 'la1', 'la2', 'na1', 'oc1', 'tr1', 'ru'];
 let clashDataList = {};
 for(const region of REGIONS){
-    clashDataList[region] = null;
+    clashDataList[region] = dataA;
 }
 const baseTimeoutDuration = 30000;
 let timeoutDuration = baseTimeoutDuration;
