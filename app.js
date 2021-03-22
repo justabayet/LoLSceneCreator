@@ -23,8 +23,7 @@ app.get('/clashData', function(req, res){
     console.log(req.query.region);
     console.log(clashDataList[req.query.region]);
     if(clashDataList[req.query.region] !== undefined){
-      res.json(mockDataList[req.query.region]);
-      //res.json(clashDataList[req.query.region]);
+      res.json(clashDataList[req.query.region]);
     } else {
       res.json({clashData:null});
     }
@@ -153,13 +152,12 @@ function loopUpdateData(){
 }
 
 let mockDataList = {};
-if(api_key === ""){
+if(api_key !== ""){
   loopUpdateData();
 
 } else {   
   for(const region of REGIONS){
     clashDataList[region] = mockData;
-    mockDataList[region] = mockData;
   }
 }
 

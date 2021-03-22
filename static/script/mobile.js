@@ -1,5 +1,6 @@
 let clashList = new ClashList();
 let updateCountdownLoop;
+let toUpdateCountdown = true;
 
 
 function swapViews(){
@@ -18,6 +19,8 @@ function updateViews(){
 
 function updateCoolDivs(){
     setDateDiv(clashList.getCurrentRegistrationTime());
+    updateCountdown();
+    toUpdateCountdown = true;
     updateCountdown();
     updateCountdownLoop = setInterval( updateCountdown, 500);
 }
@@ -189,6 +192,8 @@ function setDateDiv(dateMilli){
 }
 
 function updateCountdown(){
+    if(!toUpdateCountdown)
+        return;
     let currentRegistrationTime = clashList.getCurrentRegistrationTime();
     if(currentRegistrationTime === null){
         $("#days").html("--");
@@ -244,7 +249,7 @@ $('#daySelectorNext').click(
 
 function selectorClicked(msg, nextFunction){
     Log.debug(msg);
-
+    toUpdateCountdown = false;
     clearInterval(updateCountdownLoop);
 
     if(nextFunction()){
@@ -253,13 +258,11 @@ function selectorClicked(msg, nextFunction){
         swapViews();
         setTimeout(() => {
             updateCoolDivs();
-        }, 300);
+        }, 200);
 
     }
 
 }
-
-
 
 $(".dropbtn").click(
     () => {
