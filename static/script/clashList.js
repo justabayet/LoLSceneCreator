@@ -1,7 +1,7 @@
 class ClashList{
     constructor(){
         this.list = [];
-        /*
+        /* data structure example
         [{
             'name': 'zaun',
             'days':[
