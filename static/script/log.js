@@ -11,8 +11,9 @@
 }*/
 
 let Log = {
-    debug:(abc)=>{
-        console.log(abc);
+    isDebugMode:true,
+    debug:(msg)=>{
+        if(Log.isDebugMode) console.log(`DEBUG : ${msg}`);
     },
     error:(content)=>{
         console.log(`ERROR : ${content}`);

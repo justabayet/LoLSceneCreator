@@ -1,6 +1,8 @@
 :root{
     --gold-color: #F6BB62;
     --gold-color-light: #f6CA62;
+    --silver-color: #bdbdbd;
+    --silver-color-light: #ececec;
     --nearly-black:#0F2226;
     --bottom-color:#1A2623;
     --top-color:#455854;
@@ -22,7 +24,7 @@ html, body{
     z-index: -2;
     background: linear-gradient(0deg, var(--bottom-color) 0%, var(--top-color) 100%);
     color: rgba(0, 0, 0, 0.5);
-    height: 100vh;
+    min-height: 100vh;
     font-weight:800;
     font-family: Arial, Helvetica, sans-serif;
 }
@@ -32,7 +34,6 @@ html, body{
 #date-hider{
     right: 0vw;
     width: 70vw;
-    top: 1.5vh;
     height: 7.4vh;
     position: absolute;
     background-color:  #324641;
@@ -65,18 +66,24 @@ html, body{
     100% {right:0vw}
 }
 
-#date-container{
-    right: 2.5vw;
-    top: 1.5vh;
-    position: absolute;
-    font-size: 3vh;
-    max-width: 70vw;
+#date-container-container{
+    width: 100%;
+
+    padding-top:1.5vh;
+    padding-bottom:1.5vh;
+
     display:flex;
+    justify-content: flex-end;
+}
+
+#date-container{
+    margin-right:1.5vh;
+    font-size: 2.5vh;
+    max-width: 70vw;
 }
 
 #date{
     display:flex;
-    margin-bottom: 1vh;
 }
 
 #date-date{
@@ -89,15 +96,28 @@ html, body{
 
 #date-gmt{
     font-weight: normal;
-    position: absolute;
-    bottom:-50%;
-    right:0%;
+    float:right;
     color:var(--nearly-black);
+}
+
+
+/* ----------- COUNTDOWN & IMAGE CONTAINER ----------- */
+
+#countdownAndImage{
+    width: 100%;
 }
 
 
 /* ----------- COUNTDOWN ----------- */
 
+#countdownColumnContainer{
+    width:75%;
+    height: 100%;
+
+    display:flex;
+    justify-content: space-around;
+    flex-direction: row;
+}
 
 #countdownColumn{
     font-family:'Courier New', Courier, monospace;
@@ -105,64 +125,125 @@ html, body{
     font-weight: normal;
     color: var(--nearly-black);
 
-    left:10%;
-    position: absolute;
+    z-index: 1;
 
-    height: 80%;
-
-    top: 10%;
+    height: 100%;
 
     display:flex;
-    justify-content: space-between;
+    justify-content:space-evenly;
     flex-direction: column;
 }
 
 #countdownPanel{
-    position: absolute;
-    background: linear-gradient(70deg, var(--gold-color) 49%, var(--gold-color-light) 49%, var(--gold-color-light) 55%, var(--gold-color) 55%);
-    /*background-color: var(--gold-color);*/
-    /*background-size: 200% 200%;*/
-    background-size: 300% 300%;
-    width:70vw;
+    width:40vw;
     height:50vh;
-    top:15vh;
-
-    left:-70vw;
+    padding-top:5vh;
 
     z-index: 0;
+}
 
-    animation-duration: 0.5s;
+#passedText{
+    font-size: 12px;
+    font-weight: normal;
+    position: absolute;
+
+    padding: 1vw;
+    width:30vw;
+
+    display:none;
+}
+
+
+#backgroundCountdownPanel{
+    transition: background-color 0.5s;
+    background-color: var(--top-color);
+    width: 100%;
+    height: 100%;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+#backgroundCountdownPanel::after{
+    display: inline-block;
+    animation-name: shiningEffect;
+    animation-delay: 0s;
+
+    animation-duration: 5s;
+    animation-timing-function: ease;
+    animation-iteration-count: infinite;
+
+    width:50px;
+    height: 120%;
+    background-color: rgba(255, 255, 255, 0.2);
+    content:"";
+    position: relative;
+    top:0%;
+    transform-origin: center;
+    transform: translateY(-90%) translateX(100%) rotate(-18deg);
+}
+
+@keyframes shiningEffect{
+    0% {transform: translateY(-90%) translateX(-100%) rotate(-18deg);}
+    50% {transform: translateY(-90%) translateX(300%) rotate(-18deg);}
+    100% {transform: translateY(-90%) translateX(-100%) rotate(-18deg);}
+}
+
+/* ----------- BACKGROUND TEXT ----------- */
+
+
+#backgroundTextContainer{
+    width:70vw;
+    height:40vh;
+
+    position: absolute;
+    top:15vh;
+    left: 40vw;
+
+    text-align: center;
+
+    display:flex;
+    justify-content:space-evenly;
+    flex-direction: column;
+}
+
+.backgroundText{
+    font-size: 5vh;
+    font-weight: 20000;
+    color: var(--nearly-black);
+    opacity: 0.3;
+
+}
+
+/* ----------- IMAGE ----------- */
+
+
+#image{
+    background-color: var(--nearly-black);
+    position: absolute;
+    width:70vw;
+    height:50vh;
+    right:0vw;
+    z-index: 1;
     animation-timing-function: ease;
     animation-fill-mode: forwards;
 }
 
-.animationCountdownIn{
-    animation-name: countdownIn;
-}
-
-.animationCountdownSwap{
-    animation-name: countdownSwap;
+/* Swap louis style */
+.animationImageSwap{
+    animation-name: imageSwap;
     animation-delay: 0s;
-    animation-duration: 0.25s;
-    animation-direction: alternate;
-    animation-iteration-count: 2;
+    animation-duration: 1s;
 }
 
-@keyframes countdownIn{
-    0% {left:-70vw}
-    100% {left:0vw}
+@keyframes imageSwap{
+    0% {right:0vw}
+    60% {right:100vw}
+    61% {right:-70vw}
+    100% {right:0vw}
 }
 
-@keyframes countdownSwap{
-    0% {left:0vw}
-    100% {left:-70vw}
-}
-
-
-@keyframes ComeFromLeft {
-0%{left: -70vw}
-100%{left: 0vw}
-}
 /* ----------- BOTTOM INFORMATIONS ----------- */
 
 
@@ -179,84 +260,133 @@ html, body{
 /* ----------- SELECTOR ----------- */
 
 
-#tournamentSelectorContainer{
-    top: 70vh;
-}
-
-#daySelectorContainer{
-    top: 80vh;
-}
 
 .selectorContainer{
+    margin-top: 5vh;
     display:flex;
     justify-content: space-between;
     flex-direction: row;
     width: 70vw;
     left: 15vw;
-    height: 8vw;
 
-    position: absolute;
+    position: relative;
 }
 
 .selector{
     /*font-size: 150%;*/
     color: var(--gold-color);
-    font-size: 4vw;
-    width: 60%;
+    font-size: 1.5rem;
+    width: 100%;
     text-align: center;
+    word-break: break-all;
 }
 
 .selectorButton{
     background-color:var(--gold-color);
-    width:8vw;
-    height: 8vw;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+
+    position:relative;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+    transition: 0.4s;
+    transition-property: opacity;
+}
+
+.selectorButtonInner{
+    width: 80%;
+    height: 80%;
+    
+    background-color: var(--bottom-color);
+    border-radius: 50%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.selectorButtonEnabled:active {
+    background-color: #996f31;
+    transform: translateY(5%);
+}
+
+.selectorButtonDisabled{
+    opacity: 0.1;
+}
+
+
+.arrowRight{
+    width:70%;
+    height: 70%;
+    position: relative;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.arrowRight::after{
+    display:block;
+    width: 20%;
+    height: 80%;
+    background-color: var(--gold-color);
+    position:absolute;
+    top: -20%;
+    content:"";
+    transform-origin: 50% 80%;
+    transform: translateX(150%) rotate(-45deg) ;
+}
+
+.arrowRight::before{
+    display:block;
+    width: 20%;
+    height: 80%;
+    background-color: var(--gold-color);
+    position:absolute;
+    bottom: -20%;
+    content:"";
+    transform-origin: 50% 20%;
+    transform: translateX(150%) rotate(45deg);
+}
+
+.arrowLeft{
+    width:70%;
+    height: 70%;
+    position: relative;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.arrowLeft::after{
+    display:block;
+    width: 20%;
+    height: 80%;
+    background-color: var(--gold-color);
+    position:absolute;
+    top: -20%;
+    content:"";
+    transform-origin: 50% 80%;
+    transform: translateX(-150%) rotate(45deg) ;
+}
+
+.arrowLeft::before{
+    display:block;
+    width: 20%;
+    height: 80%;
+    background-color: var(--gold-color);
+    position:absolute;
+    bottom: -20%;
+    content:"";
+    transform-origin: 50% 20%;
+    transform: translateX(-150%) rotate(-45deg);
 }
 
 .selectorButtonContainer{
-    display:flex;
-    justify-content:space-around;
+    display: flex;
+    justify-content: space-around;
     flex-direction: column;
 }
 
-
-
-/* ----------- IMAGE ----------- */
-
-
-#image{
-    background-color: var(--nearly-black);
-    position: absolute;
-    width:70vw;
-    height:50vh;
-    top:10vh;
-    right:-70vw;
-    z-index: 1;
-    animation-duration: 0.5s;
-    animation-timing-function: ease;
-    animation-fill-mode: forwards;
-}
-
-.animationImageIn{
-    animation-name: imageIn;
-}
-
-.animationImageSwap{
-    animation-name: imageSwap;
-    animation-delay: 0s;
-    animation-duration: 0.25s;
-    animation-direction: alternate;
-    animation-iteration-count: 2;
-}
-
-@keyframes imageIn{
-    0% {right:-70vw}
-    100% {right:0vw}
-}
-
-@keyframes imageSwap{
-    0% {right:0vw}
-    100% {right:-70vw}
-}
 
 
 /* ----------- DROPDOWN ----------- */ 
@@ -266,7 +396,8 @@ html, body{
     background-color:var(--nearly-black);
     color: var(--gold-color);
     width: 20vw;
-    height: 7vh;
+    padding-top:1.5vh;
+    padding-bottom:1.5vh;
     font-size: 2.5vh;
     font-weight: 800;
     border: none;
@@ -280,11 +411,12 @@ html, body{
 
 /* The container <div> - needed to position the dropdown content */
 .dropdown {
+    border : 0.1vh solid var(--gold-color);
     position: absolute;
     left: 2.5vh;
     top: 2.5vh;
     display: inline-block;
-    z-index: 1;
+    z-index: 2;
 }
 
 /* Dropdown Content (Hidden by Default) */
@@ -295,7 +427,7 @@ html, body{
     width: 100%;
     height: 52vh;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.8);
-    z-index: 2;
+    z-index: 3;
     overflow: auto;
 }
 

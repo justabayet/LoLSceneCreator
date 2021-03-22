@@ -15,30 +15,51 @@
             <div id="regionSelector" class="dropdown-content"></div>
         </div>
 
-        <div id="date-container">
-            <div id="date">
-                <div id="date-date">-- JAN ----</div>
-                <div id="date-hour">--:--</div>
+        <div id="date-container-container">
+            <div id="date-container">
+                <div id="date-hider" class="animationDateHiderOut"></div>
+                <div id="date">
+                    <div id="date-date">-- JAN ---- </div>
+                    <div id="date-hour">--:--</div>
+                </div>
+
+                <div id="date-gmt">GMT+----</div>
+            </div>
+        </div>
+
+        <div class="countdownAndImage">
+            <div id="image"></div>
+
+            <div id="backgroundTextContainer">
+                <div class="backgroundText">WHEN</div>
+                <div class="backgroundText">IS</div>
+                <div class="backgroundText">NEXT</div>
+                <div class="backgroundText">LOL</div>
+                <div class="backgroundText">CLASH</div>
             </div>
 
-            <div id="date-gmt">GMT+----</div>
-        </div>
-        <div id="date-hider" class="animationDateHiderOut"></div>
-
-        <div id="image" class="animationImageIn"></div>
-
-        <div id="countdownPanel" class="animationCountdownIn">
-            <div id="countdownColumn">
-                <div class="countdownItem" id="days">--</div>
-                <div class="countdownItem" id="hours">--</div>
-                <div class="countdownItem" id="minutes">--</div>
-                <div class="countdownItem" id="seconds">--</div>
+            <div id="countdownPanel">
+                <div id="backgroundCountdownPanel">
+                    <div id="passedText">*Already passed</div>
+                    <div id="countdownColumnContainer">
+                        <div id="countdownColumn">
+                            <div class="countdownItem" id="days">--</div>
+                            <div class="countdownItem" id="hours">--</div>
+                            <div class="countdownItem" id="minutes">--</div>
+                            <div class="countdownItem" id="seconds">--</div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
         <div id="tournamentSelectorContainer" class="selectorContainer">
             <div class="selectorButtonContainer selectorButtonPrevious">
-                <div class="selectorButton" id="tournamentSelectorPrevious"></div>
+                <div class="selectorButton selectorButtonEnabled" id="tournamentSelectorPrevious">
+                    <div class="selectorButtonInner">
+                        <div class="arrowLeft"></div>
+                    </div>
+                </div>
             </div>
 
             <div class="selectorButtonContainer">
@@ -46,13 +67,21 @@
             </div>
 
             <div class="selectorButtonContainer selectorButtonNext">
-                <div class="selectorButton" id="tournamentSelectorNext"></div>
+                <div class="selectorButton selectorButtonEnabled" id="tournamentSelectorNext">
+                    <div class="selectorButtonInner">
+                        <div class="arrowRight"></div>
+                    </div>
+                </div>
             </div>
         </div>
 
         <div id="daySelectorContainer" class="selectorContainer">
             <div class="selectorButtonContainer selectorButtonPrevious">
-                <div class="selectorButton" id="daySelectorPrevious"></div>
+                <div class="selectorButton selectorButtonEnabled" id="daySelectorPrevious">
+                    <div class="selectorButtonInner">
+                        <div class="arrowLeft"></div>
+                    </div>
+                </div>
             </div>
 
             <div class="selectorButtonContainer">
@@ -60,15 +89,18 @@
             </div>
 
             <div class="selectorButtonContainer selectorButtonNext">
-                <div class="selectorButton" id="daySelectorNext"></div>
+                <div class="selectorButton selectorButtonEnabled" id="daySelectorNext">
+                    <div class="selectorButtonInner">
+                        <div class="arrowRight"></div>
+                    </div>
+                </div>
             </div>
         </div>
         
     </div>
 
     <div id="bottomInformations">
-        <div id="lastupdate"></div>
-        <div>*start time for registrations.</div>
+        <div>*start time to lock in for tier IV teams.</div>
         <div id="riotDisclaimer">"whenisnextlolclash.com" was created under Riot Games' "Legal Jibber Jabber" policy using assets owned by Riot Games.  Riot Games does not endorse or sponsor this project.</div>
     </div>
 </body>

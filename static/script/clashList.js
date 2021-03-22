@@ -25,6 +25,16 @@ class ClashList{
         this.list = [];
         this.currentIdPrimary = 0;
         this.currentIdSecondary = 0;
+        console.log(data);
+        if(data === null) {
+            data = [{
+                'id': 0,
+                'themeId': 0,
+                'nameKey': '--',
+                'nameKeySecondary': '--',
+                'schedule':[]
+                }];
+        };
         for(const clash of data){
             this.addPrimary(clash.nameKey);
             this.addSecondary(clash.nameKey, clash.nameKeySecondary, clash.schedule);
@@ -48,18 +58,25 @@ class ClashList{
         });
     }
 
+    hasNextPrimary(){
+        if(this.list.length === 1) return false;
+        return true;
+    }
+
     nextPrimary(){
-        if(this.list.length === 1) return;
+        if(this.list.length === 1) return false;
         this.currentIdPrimary = (this.currentIdPrimary+1)%this.list.length;
         this.currentIdSecondary = 0;
-        Log.debug(this.currentIdPrimary);
+        Log.debug(`Current primary index : ${this.currentIdPrimary}`);
+        return true;
     }
 
     previousPrimary(){
-        if(this.list.length === 1) return;
+        if(this.list.length === 1) return false;
         this.currentIdPrimary = (this.currentIdPrimary-1+this.list.length)%this.list.length;
         this.currentIdSecondary = 0;
-        Log.debug(this.currentIdPrimary);
+        Log.debug(`Current primary index : ${this.currentIdPrimary}`);
+        return true;
     }
 
     getCurrentPrimary(){
@@ -99,16 +116,26 @@ class ClashList{
         }
     }
 
+    hasNextSecondary(){
+        let cp = this.getCurrentPrimary();
+        if(cp.days.length === 1) return false;
+        return true;
+    }
+
     nextSecondary(){
         let cp = this.getCurrentPrimary();
+        if(cp.days.length === 1) return false;
         this.currentIdSecondary = (this.currentIdSecondary+1)%cp.days.length;
-        Log.debug(this.currentIdSecondary);
+        Log.debug(`Current secondary index : ${this.currentIdSecondary}`);
+        return true;
     }
 
     previousSecondary(){
         let cp = this.getCurrentPrimary();
+        if(cp.days.length === 1) return false;
         this.currentIdSecondary = (this.currentIdSecondary-1+cp.days.length)%cp.days.length;
-        Log.debug(this.currentIdSecondary);
+        Log.debug(`Current secondary index : ${this.currentIdSecondary}`);
+        return true;
     }
 
     getCurrentSecondary(){
@@ -116,6 +143,7 @@ class ClashList{
     }
 
     sort(){
+        if(this.list[0].nameKey === "--") return this.list;
         let tempList = [];
         for(const elementToInsert of this.list){
             if(tempList.length == 0){

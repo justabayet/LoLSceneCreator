@@ -4,11 +4,9 @@ let updateCountdownLoop;
 
 function swapViews(){
     $("#image").removeClass("animationImageSwap");
-    $("#countdownPanel").removeClass("animationCountdownSwap");
     $("#date-hider").removeClass("animationDateHiderSwap");
     void document.getElementById("image").offsetWidth;
 
-    $("#countdownPanel").addClass("animationCountdownSwap");
     $("#date-hider").addClass("animationDateHiderSwap");
     $("#image").addClass("animationImageSwap");
 }
@@ -19,13 +17,46 @@ function updateViews(){
 }
 
 function updateCoolDivs(){
-    setDateDiv(new Date(clashList.getCurrentRegistrationTime()));
+    setDateDiv(clashList.getCurrentRegistrationTime());
     updateCountdown();
+    updateCountdownLoop = setInterval( updateCountdown, 500);
 }
 
 function updateSelectors(){
     $('#tournamentSelector').html((clashList.getCurrentPrimary().name).toUpperCase());
+    if(clashList.hasNextPrimary()){
+        if(document.getElementById('tournamentSelectorPrevious').classList.contains("selectorButtonDisabled")){
+            document.getElementById('tournamentSelectorPrevious').classList.remove("selectorButtonDisabled");
+            document.getElementById('tournamentSelectorNext').classList.remove("selectorButtonDisabled");
+        }
+        document.getElementById('tournamentSelectorPrevious').classList.add("selectorButtonEnabled");
+        document.getElementById('tournamentSelectorNext').classList.add("selectorButtonEnabled");
+    } else {
+        if(document.getElementById('tournamentSelectorPrevious').classList.contains("selectorButtonEnabled")){
+            document.getElementById('tournamentSelectorPrevious').classList.remove("selectorButtonEnabled");
+            document.getElementById('tournamentSelectorNext').classList.remove("selectorButtonEnabled");
+        }
+        document.getElementById('tournamentSelectorPrevious').classList.add("selectorButtonDisabled");
+        document.getElementById('tournamentSelectorNext').classList.add("selectorButtonDisabled");
+
+    }
     $('#daySelector').html((clashList.getCurrentSecondary().name).toUpperCase());
+    if(clashList.hasNextSecondary()){
+        if(document.getElementById('daySelectorPrevious').classList.contains("selectorButtonDisabled")){
+            document.getElementById('daySelectorPrevious').classList.remove("selectorButtonDisabled");
+            document.getElementById('daySelectorNext').classList.remove("selectorButtonDisabled");
+        }
+        document.getElementById('daySelectorPrevious').classList.add("selectorButtonEnabled");
+        document.getElementById('daySelectorNext').classList.add("selectorButtonEnabled");
+    } else {
+        if(document.getElementById('daySelectorPrevious').classList.contains("selectorButtonEnabled")){
+            document.getElementById('daySelectorPrevious').classList.remove("selectorButtonEnabled");
+            document.getElementById('daySelectorNext').classList.remove("selectorButtonEnabled");
+        }
+        document.getElementById('daySelectorNext').classList.add("selectorButtonDisabled");
+        document.getElementById('daySelectorPrevious').classList.add("selectorButtonDisabled");
+        
+    }
 }
 
 function createDropdown(){
@@ -106,53 +137,85 @@ function getClashData(){
         
         Log.debug(status);
         
-        Log.debug(data.clashData);
-        Log.debug(data.updateTime);
+        if(data.clashData != null){
+            Log.debug(data.clashData);
+            Log.debug(data.updateTime);
+        }
 
-        $("#lastupdate").html("Last update on : " + (new Date(data.updateTime)).toString());
+        //$("#lastupdate").html("Last update on : " + (new Date(data.updateTime)).toString());
     
         clashList.initialize(data.clashData);
+
+        updateSelectors();
+        swapViews();
+        setTimeout(() => {
+            updateCoolDivs();
+        }, 500);
+        updateCountdownLoop = setInterval( updateCountdown, 500);
     
-        if(clashList.getCurrentSecondary()){
-            updateSelectors();
-            swapViews();
-            setTimeout(() => {
-                updateCoolDivs();
-            }, 500);
-            updateCountdownLoop = setInterval( updateCountdown, 500);
-    
-        } else {
-            Log.error("No clash scheduled atm");
-        }
     });
 }
 getClashData();
 
 
 
-function setDateDiv(date){
-    $("#date-date").html(`${("0" + date.getDate()).substr(-2)} ${month[date.getMonth()]} ${date.getFullYear()}`);
-    $("#date-hour").html(`${("0" + date.getHours()).substr(-2)}:${("0" + date.getMinutes()).substr(-2)}` + "*");
-    $("#date-gmt").html(`${date.toString().split(' ')[5]}`);
+function setDateDiv(dateMilli){
+    if(dateMilli === null){
+        $("#date-date").html(`-- JAN ---- `);
+        $("#date-hour").html(`--:--`);
+        $("#date-gmt").html(`GMT+----`);
+
+        $("#backgroundCountdownPanel").css("background-color", "var(--top-color)");
+        $('#passedText').css("display", "none");
+
+    } else {
+        let date = new Date(dateMilli);
+
+        $("#date-date").html(`${("0" + date.getDate()).substr(-2)} ${month[date.getMonth()]} ${date.getFullYear()}`);
+        $("#date-hour").html(`${("0" + date.getHours()).substr(-2)}:${("0" + date.getMinutes()).substr(-2)}` + "*");
+        $("#date-gmt").html(`${date.toString().split(' ')[5]}`);
+
+        let timeZoneOffsetInMilliseconds = (new Date()).getTimezoneOffset()*60*1000;
+        let leftDuration = dateMilli - Date.now() + timeZoneOffsetInMilliseconds; // In milliseconds
+
+        if(leftDuration < 0){
+            $("#backgroundCountdownPanel").css("background-color", "var(--silver-color)");
+            $('#passedText').css("display", "block");
+        } else {
+            $("#backgroundCountdownPanel").css("background-color", "var(--gold-color)");
+            $('#passedText').css("display", "none");
+        }
+    }
 }
 
 function updateCountdown(){
-    let leftDuration = clashList.getCurrentRegistrationTime() - Date.now(); // In milliseconds
-    let leftDate = new Date(leftDuration);
+    let currentRegistrationTime = clashList.getCurrentRegistrationTime();
+    if(currentRegistrationTime === null){
+        $("#days").html("--");
+        $("#hours").html("--");
+        $("#minutes").html("--");
+        $("#seconds").html("--");
 
-    // Days part from the timestamp
-    let days = Math.floor(leftDuration/(1000*60*60*24));
-    // Hours part from the timestamp
-    let hours = "0" + leftDate.getHours();
-    // Minutes part from the timestamp
-    let minutes = "0" + leftDate.getMinutes();
-    // Seconds part from the timestamp
-    let seconds = "0" + leftDate.getSeconds();
+    } else {
+        let timeZoneOffsetInMilliseconds = (new Date()).getTimezoneOffset()*60*1000;
+        let leftDuration = Math.abs(currentRegistrationTime - Date.now() + timeZoneOffsetInMilliseconds); // In milliseconds
 
-    $("#days").html(days);
-    $("#hours").html(hours.substr(-2));
-    $("#minutes").html(minutes.substr(-2));
-    $("#seconds").html(seconds.substr(-2));
+    
+        // Days part from the timestamp
+        let days = Math.floor(leftDuration/(1000*60*60*24));
+        // Hours part from the timestamp
+        let hours = Math.floor(leftDuration/(1000*60*60)) - days*24;
+        // Minutes part from the timestamp
+        let minutes = Math.floor(leftDuration/(1000*60))- days*24*60 - hours*60;
+        // Seconds part from the timestamp
+        let seconds = Math.floor(leftDuration/(1000))- days*24*60*60 - hours*60*60 - minutes*60;
+    
+        $("#days").html(days);
+        $("#hours").html(("0"+hours).substr(-2));
+        $("#minutes").html(("0"+minutes).substr(-2));
+        $("#seconds").html(("0"+seconds).substr(-2));
+
+    }
 }
 
 $('#tournamentSelectorPrevious').click(
@@ -182,13 +245,17 @@ $('#daySelectorNext').click(
 function selectorClicked(msg, nextFunction){
     Log.debug(msg);
 
-    nextFunction();
+    clearInterval(updateCountdownLoop);
 
-    updateSelectors();
-    swapViews();
-    setTimeout(() => {
-        updateCoolDivs();
-    }, 500);
+    if(nextFunction()){
+
+        updateSelectors();
+        swapViews();
+        setTimeout(() => {
+            updateCoolDivs();
+        }, 300);
+
+    }
 
 }
 
@@ -202,8 +269,13 @@ $(".dropbtn").click(
 
 $(".dropdown-item").click(
     (event) => {
-        $("#regionSelectorDropbtn").html(event.target.innerHTML);
-        getClashData();
+        let newRegion = event.target.innerHTML;
+        let oldRegion = $("#regionSelectorDropbtn").html();
+
+        if(oldRegion != newRegion){
+            $("#regionSelectorDropbtn").html(newRegion);
+            getClashData();
+        }
     }
 );
 

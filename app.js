@@ -21,7 +21,13 @@ app.get('/', function(req, res){
 
 app.get('/clashData', function(req, res){
     console.log(req.query.region);
-    res.json(clashDataList[req.query.region]);
+    console.log(clashDataList[req.query.region]);
+    if(clashDataList[req.query.region] !== undefined){
+      res.json(mockDataList[req.query.region]);
+      //res.json(clashDataList[req.query.region]);
+    } else {
+      res.json({clashData:null});
+    }
 });
 
 const PORT = 5000;
@@ -43,7 +49,7 @@ let mockData = {
       {
         id: 2681,
         themeId: 19,
-        nameKey: 'zaun',
+        nameKey: 'zaun_deadaezd_deazdaezda',
         nameKeySecondary: 'day_2',
         schedule: [
             {
@@ -146,12 +152,14 @@ function loopUpdateData(){
     setTimeout(loopUpdateData, timeoutDuration);
 }
 
-if(api_key !== ""){
+let mockDataList = {};
+if(api_key === ""){
   loopUpdateData();
 
 } else {   
   for(const region of REGIONS){
     clashDataList[region] = mockData;
+    mockDataList[region] = mockData;
   }
 }
 
