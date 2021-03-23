@@ -258,7 +258,7 @@ function selectorClicked(msg, nextFunction){
         swapViews();
         setTimeout(() => {
             updateCoolDivs();
-        }, 200);
+        }, 300);
 
     }
 
