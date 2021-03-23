@@ -13,7 +13,7 @@ app.use(express.static(path.join(__dirname, 'static')));
 app.get('/', function(req, res){
     console.log(req.device.type);
     if(req.device.type === "desktop"){
-        res.sendFile(path.join(__dirname, 'static/html/desktop.html'))
+        res.sendFile(path.join(__dirname, 'static/html/mobile.html'))
     } else {
         res.sendFile(path.join(__dirname, 'static/html/mobile.html'))
     }
