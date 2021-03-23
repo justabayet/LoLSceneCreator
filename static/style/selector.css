@@ -11,11 +11,11 @@
 
 .selector{
     /*font-size: 150%;*/
-    color:var(--bottom-color);
-    text-shadow: -1px 1px 0 var(--gold-color),
+    color:var(--gold-color);
+    /*text-shadow: -1px 1px 0 var(--gold-color),
 				  1px 1px 0 var(--gold-color),
 				 1px -1px 0 var(--gold-color),
-				-1px -1px 0 var(--gold-color);
+				-1px -1px 0 var(--gold-color);*/
     font-size: 1.5rem;
     width: 100%;
     text-align: center;
@@ -48,8 +48,8 @@
 }
 
 .selectorButtonInner{
-    width: 80%;
-    height: 80%;
+    width: 90%;
+    height: 90%;
     
     background-color: var(--bottom-color);
     border-radius: 50%;
@@ -80,26 +80,26 @@
 
 .arrowRight::after{
     display:block;
-    width: 20%;
-    height: 80%;
+    width: 15%;
+    height: 60%;
     background-color: var(--gold-color);
     position:absolute;
-    top: -20%;
+    top: 0%;
     content:"";
     transform-origin: 50% 80%;
-    transform: translateX(150%) rotate(-45deg) ;
+    transform: translateX(100%) rotate(-45deg) ;
 }
 
 .arrowRight::before{
     display:block;
-    width: 20%;
-    height: 80%;
+    width: 15%;
+    height: 60%;
     background-color: var(--gold-color);
     position:absolute;
-    bottom: -20%;
+    bottom: 0%;
     content:"";
     transform-origin: 50% 20%;
-    transform: translateX(150%) rotate(45deg);
+    transform: translateX(100%) rotate(45deg);
 }
 
 .arrowLeft{
@@ -112,11 +112,11 @@
 
 .arrowLeft::after{
     display:block;
-    width: 20%;
-    height: 80%;
+    width: 15%;
+    height: 60%;
     background-color: var(--gold-color);
     position:absolute;
-    top: -20%;
+    top: 0%;
     content:"";
     transform-origin: 50% 80%;
     transform: translateX(-150%) rotate(45deg) ;
@@ -124,11 +124,11 @@
 
 .arrowLeft::before{
     display:block;
-    width: 20%;
-    height: 80%;
+    width: 15%;
+    height: 60%;
     background-color: var(--gold-color);
     position:absolute;
-    bottom: -20%;
+    bottom: 0%;
     content:"";
     transform-origin: 50% 20%;
     transform: translateX(-150%) rotate(-45deg);
