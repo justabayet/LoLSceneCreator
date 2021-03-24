@@ -2,6 +2,43 @@ let clashList = new ClashList();
 let updateCountdownLoop;
 let toUpdateCountdown = true;
 
+function createRipple(event) {
+    const button = event.currentTarget;
+  
+    const circle = document.createElement("span");
+    const diameter = 100;
+    const radius = diameter / 2;
+
+    var x = (event.pageX - $('#imageInner').offset().left);
+    var y = (event.pageY - $('#imageInner').offset().top);
+  
+    circle.style.width = circle.style.height = `${diameter}px`;
+    circle.style.left = `${x - radius}px`;
+    circle.style.top = `${y - radius}px`;
+    circle.classList.add("ripple");
+     
+    const ripples = button.getElementsByClassName("ripple");
+
+    const back = document.createElement("div");
+    back.classList.add("negativeBck");
+    back.style.left = (-x+radius)+"px";
+    back.style.top = (-y+radius)+"px";
+    back.style.width = $('#imageInner').width() + "px";
+    back.style.height = $('#imageInner').height() + "px";
+    console.log(back.style);
+    console.log($('#imageInner').width());
+
+  
+    if (ripples.length > 5) {
+      ripples[0].remove();
+    }
+  
+    button.appendChild(circle);
+    circle.appendChild(back);
+}
+  
+const button = document.getElementById("imageInner");
+button.addEventListener("click", createRipple);
 
 function swapViews(){
     $("#image").removeClass("animationImageSwap");
@@ -28,37 +65,19 @@ function updateCoolDivs(){
 function updateSelectors(){
     $('#tournamentSelector').html((clashList.getCurrentPrimary().name).toUpperCase());
     if(clashList.hasNextPrimary()){
-        if(document.getElementById('tournamentSelectorPrevious').classList.contains("selectorButtonDisabled")){
-            document.getElementById('tournamentSelectorPrevious').classList.remove("selectorButtonDisabled");
-            document.getElementById('tournamentSelectorNext').classList.remove("selectorButtonDisabled");
-        }
         document.getElementById('tournamentSelectorPrevious').classList.add("selectorButtonEnabled");
         document.getElementById('tournamentSelectorNext').classList.add("selectorButtonEnabled");
     } else {
-        if(document.getElementById('tournamentSelectorPrevious').classList.contains("selectorButtonEnabled")){
-            document.getElementById('tournamentSelectorPrevious').classList.remove("selectorButtonEnabled");
-            document.getElementById('tournamentSelectorNext').classList.remove("selectorButtonEnabled");
-        }
-        document.getElementById('tournamentSelectorPrevious').classList.add("selectorButtonDisabled");
-        document.getElementById('tournamentSelectorNext').classList.add("selectorButtonDisabled");
-
+        document.getElementById('tournamentSelectorPrevious').classList.remove("selectorButtonEnabled");
+        document.getElementById('tournamentSelectorNext').classList.remove("selectorButtonEnabled");
     }
     $('#daySelector').html((clashList.getCurrentSecondary().name).toUpperCase());
     if(clashList.hasNextSecondary()){
-        if(document.getElementById('daySelectorPrevious').classList.contains("selectorButtonDisabled")){
-            document.getElementById('daySelectorPrevious').classList.remove("selectorButtonDisabled");
-            document.getElementById('daySelectorNext').classList.remove("selectorButtonDisabled");
-        }
         document.getElementById('daySelectorPrevious').classList.add("selectorButtonEnabled");
         document.getElementById('daySelectorNext').classList.add("selectorButtonEnabled");
     } else {
-        if(document.getElementById('daySelectorPrevious').classList.contains("selectorButtonEnabled")){
-            document.getElementById('daySelectorPrevious').classList.remove("selectorButtonEnabled");
-            document.getElementById('daySelectorNext').classList.remove("selectorButtonEnabled");
-        }
-        document.getElementById('daySelectorNext').classList.add("selectorButtonDisabled");
-        document.getElementById('daySelectorPrevious').classList.add("selectorButtonDisabled");
-        
+        document.getElementById('daySelectorPrevious').classList.remove("selectorButtonEnabled");
+        document.getElementById('daySelectorNext').classList.remove("selectorButtonEnabled");
     }
 }
 
@@ -75,12 +94,13 @@ function getClashData(){
     $.get(url, {region:$("#regionSelectorDropbtn").html()}, (data, status) => {
         if(status != "success")
         {
+            // Mock data
             data = {
                 clashData: [
                   {
                     id: 2681,
                     themeId: 19,
-                    nameKey: 'zaun',
+                    nameKey: 'mock1',
                     nameKeySecondary: 'day_2',
                     schedule: [
                         {
@@ -94,7 +114,7 @@ function getClashData(){
                   {
                     id: 2662,
                     themeId: 19,
-                    nameKey: 'zaun',
+                    nameKey: 'mock1',
                     nameKeySecondary: 'day_4',
                     schedule: [
                         {
@@ -108,7 +128,7 @@ function getClashData(){
                   {
                     id: 2701,
                     themeId: 19,
-                    nameKey: 'zaun',
+                    nameKey: 'mock2',
                     nameKeySecondary: 'day_3',
                     schedule: [
                         {
@@ -122,7 +142,7 @@ function getClashData(){
                   {
                     id: 2661,
                     themeId: 19,
-                    nameKey: 'zaun',
+                    nameKey: 'mock2',
                     nameKeySecondary: 'day_1',
                     schedule: [
                         {

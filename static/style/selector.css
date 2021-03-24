@@ -37,6 +37,7 @@
     width: 3rem;
     height: 3rem;
     border-radius: 50%;
+    opacity: 0.1;
 
     position:relative;
     display: flex;
@@ -60,6 +61,10 @@
 .selectorButtonEnabled:active {
     background-color: #996f31;
     transform: translateY(5%);
+}
+
+.selectorButtonEnabled{
+    opacity: 1;
 }
 
 .selectorButtonDisabled{

@@ -89,6 +89,10 @@
     display:none;
 }
 
+.countdownItem{
+    text-align: center;
+}
+
 /* ----------- BACKGROUND TEXT ----------- */
 
 
@@ -135,17 +139,24 @@
     align-items: center;
 }
 
-#image::after{
-    content:"";
+
+#imageInner{
     background-color: var(--nearly-black);
-    background-image: url('../assets/Aatrox_0.jpg');
+    background-image: url('../assets/Aatrox_8.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
 
+    position:relative;
+
     width:calc(100% - 20px);
     height:calc(100% - 20px);
-    z-index: 2;
+    z-index: 3;
+
+    opacity: 0.8;
+
+    overflow: hidden;
+
 }
 
 .animationImageSwap{
