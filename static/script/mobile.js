@@ -2,44 +2,6 @@ let clashList = new ClashList();
 let updateCountdownLoop;
 let toUpdateCountdown = true;
 
-function createRipple(event) {
-    const button = event.currentTarget;
-  
-    const circle = document.createElement("span");
-    const diameter = 100;
-    const radius = diameter / 2;
-
-    var x = (event.pageX - $('#imageInner').offset().left);
-    var y = (event.pageY - $('#imageInner').offset().top);
-  
-    circle.style.width = circle.style.height = `${diameter}px`;
-    circle.style.left = `${x - radius}px`;
-    circle.style.top = `${y - radius}px`;
-    circle.classList.add("ripple");
-     
-    const ripples = button.getElementsByClassName("ripple");
-
-    const back = document.createElement("div");
-    back.classList.add("negativeBck");
-    back.style.left = (-x+radius)+"px";
-    back.style.top = (-y+radius)+"px";
-    back.style.width = $('#imageInner').width() + "px";
-    back.style.height = $('#imageInner').height() + "px";
-    console.log(back.style);
-    console.log($('#imageInner').width());
-
-  
-    if (ripples.length > 5) {
-      ripples[0].remove();
-    }
-  
-    button.appendChild(circle);
-    circle.appendChild(back);
-}
-  
-const button = document.getElementById("imageInner");
-button.addEventListener("click", createRipple);
-
 function swapViews(){
     $("#image").removeClass("animationImageSwap");
     $("#date-hider").removeClass("animationDateHiderSwap");
