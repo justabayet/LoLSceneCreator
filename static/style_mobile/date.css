@@ -1,0 +1,102 @@
+#date-container-container{
+    width: 100%;
+
+    padding-top:1.5vh;
+    padding-bottom:1.5vh;
+
+    display:flex;
+    justify-content: space-between;
+	
+	/*background:repeating-linear-gradient(
+		45deg, 
+		var(--gold-color) 25%,  
+		var(--gold-color) 40%,  
+		var(--bottom-color) 40% ,
+		var(--bottom-color) 50%, 
+		var(--gold-color) 50%,  
+		var(--gold-color) 65%,  
+		var(--bottom-color) 65% ,
+		var(--bottom-color) 75%
+	);
+	
+	background:repeating-linear-gradient(
+		45deg, 
+		var(--gold-color) 0%, 
+		var(--gold-color) 25%,  
+		var(--bottom-color) 25%,  
+		var(--bottom-color) 50%,
+		var(--gold-color) 50%, 
+		var(--gold-color) 75%,  
+		var(--bottom-color) 75%,  
+		var(--bottom-color) 100%
+	);*/
+
+	
+	background:repeating-linear-gradient(
+		45deg, 
+		var(--gold-color) 0%, 
+		var(--gold-color-very-light) 50%,
+		var(--gold-color) 50%, 
+		var(--gold-color-very-light) 100%
+	);
+	background-size:100vh 100vh;
+
+	-webkit-background-clip: text;
+	background-clip: text;
+
+
+	animation-name:backgroundAnimation;
+	animation-delay: 0s;
+	animation-duration: 30s;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+}
+
+#date-container{
+    margin-right:1.5vh;
+    font-size: 2.5vh;
+    max-width: 31vh;
+    color:transparent;
+
+	display:flex;
+	flex-direction: column;
+	align-items: flex-end;
+}
+
+#date{
+    display:flex;
+}
+
+#date-gmt{
+    font-weight: normal;
+}
+
+/* --------- HIDER ----------- */
+
+#date-hider{
+    right: 0vw;
+    width: 31vh;
+    height: 7.4vh;
+    position: absolute;
+    background-color:  var(--bottom-color);
+
+
+    animation-duration: 0.5s;
+    animation-timing-function: ease;
+    animation-fill-mode: forwards;
+
+	filter:drop-shadow(-5px 5px 5px #000000b0);
+}
+
+.animationDateHiderSwap{
+    animation-name: dateHiderSwap;
+    animation-delay: 0s;
+    animation-duration: 0.25s;
+    animation-direction: alternate;
+    animation-iteration-count: 2;
+}
+
+@keyframes dateHiderSwap{
+    0% {transform: translateX(110%);}
+    100% {transform: translateX(0%);}
+}

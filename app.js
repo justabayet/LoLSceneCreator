@@ -13,7 +13,7 @@ app.use(express.static(path.join(__dirname, 'static')));
 app.get('/', function(req, res){
     console.log(req.device.type);
     if(req.device.type === "desktop"){
-        res.sendFile(path.join(__dirname, 'static/html/mobile.html'))
+        res.sendFile(path.join(__dirname, 'static/html/desktop.html'))
     } else {
         res.sendFile(path.join(__dirname, 'static/html/mobile.html'))
     }
@@ -21,7 +21,7 @@ app.get('/', function(req, res){
 
 app.get('/clashData', function(req, res){
     console.log(req.query.region);
-    console.log(clashDataList[req.query.region]);
+    // console.log(clashDataList[req.query.region]);
     if(clashDataList[req.query.region] !== undefined){
       res.json(clashDataList[req.query.region]);
     } else {
@@ -112,6 +112,23 @@ let clashDataList = {};
 const baseTimeoutDuration = 30000;
 let timeoutDuration = baseTimeoutDuration;
 
+
+
+
+/* Response example of the RIOT API. Time is in GMT+0
+"id": 2981,
+        "themeId": 19,
+        "nameKey": "zaun",
+        "nameKeySecondary": "day_1",
+        "schedule": [
+            {
+                "id": 3101,
+                "registrationTime": 1613866500000,
+                "startTime": 1613876400000,
+                "cancelled": false
+            }
+        ]
+ */
 function loopUpdateData(){
     timeoutDuration = baseTimeoutDuration;
     for(const region of REGIONS){
@@ -161,15 +178,3 @@ if(api_key !== ""){
   }
 }
 
-// "id": 2981,
-//         "themeId": 19,
-//         "nameKey": "zaun",
-//         "nameKeySecondary": "day_1",
-//         "schedule": [
-//             {
-//                 "id": 3101,
-//                 "registrationTime": 1613866500000,
-//                 "startTime": 1613876400000,
-//                 "cancelled": false
-//             }
-//         ]

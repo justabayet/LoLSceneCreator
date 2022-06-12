@@ -1,0 +1,96 @@
+:root{
+    --gold-color: #F6BB62;
+    --gold-color-light: #f6CA62;
+    --gold-color-very-light: #fcecc6;
+    --silver-color: #bdbdbd;
+    --silver-color-light: #ececec;
+    --nearly-black:#0F2226;
+    --bottom-color:#1A2623;
+    --top-color:#455854;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    animation-delay: 0.5s;
+}
+
+html, body{
+    position:relative;
+    overflow-x:hidden;
+    width:100vw;
+}
+
+#main-container{
+    position: relative;
+    z-index: 0;
+    color: rgba(0, 0, 0, 0.5);
+    min-height: 100vh;
+    font-weight:800;
+    font-family: Arial, Helvetica, sans-serif;
+    background:repeating-linear-gradient(
+        45deg, 
+        var(--bottom-color) 0%,  
+        var(--top-color) 50%, 
+        var(--bottom-color) 50%,  
+        var(--top-color) 100%
+    );
+
+    animation-name:backgroundAnimation;
+    background-size:100vh 100vh;
+
+
+    animation-delay: 0s;
+
+    animation-duration: 30s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+/*
+#main-container::before{
+    z-index: -1;
+    position: absolute;
+    top:0;
+    width: 100%;
+    height: 100%;
+    background:repeating-linear-gradient(
+        45deg, 
+        var(--bottom-color) 25%,  
+        var(--top-color) 50%, 
+        var(--bottom-color) 50%,  
+        var(--top-color) 75%
+    );
+    content: "";
+
+    animation-name:backgroundAnimation;
+
+    background-size:170vh 170vh;
+
+
+    animation-delay: 0s;
+
+    animation-duration: 50s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+
+}*/
+
+
+@keyframes backgroundAnimation{
+    0% {background-position-y: 0%;}
+    100% {background-position-y: 100vh;}
+}
+
+
+/* ----------- BOTTOM INFORMATIONS ----------- */
+
+
+#bottomInformations{
+    margin-top: 10vh;
+    font-size: 12px;
+    font-weight: normal;
+    color: #7474746e;
+    text-align: center;
+    z-index: 10;
+
+}

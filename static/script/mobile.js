@@ -160,8 +160,7 @@ function setDateDiv(dateMilli){
         $("#date-hour").html(`${("0" + date.getHours()).substr(-2)}:${("0" + date.getMinutes()).substr(-2)}` + "*");
         $("#date-gmt").html(`${date.toString().split(' ')[5]}`);
 
-        let timeZoneOffsetInMilliseconds = (new Date()).getTimezoneOffset()*60*1000;
-        let leftDuration = dateMilli - Date.now() + timeZoneOffsetInMilliseconds; // In milliseconds
+        let leftDuration = dateMilli - Date.now(); // In milliseconds
 
         if(leftDuration < 0){
             $("#backgroundCountdownPanel").css("background-color", "var(--silver-color)");
@@ -185,8 +184,8 @@ function updateCountdown(){
 
     } else {
         let timeZoneOffsetInMilliseconds = (new Date()).getTimezoneOffset()*60*1000;
-        let leftDuration = Math.abs(currentRegistrationTime - Date.now() + timeZoneOffsetInMilliseconds); // In milliseconds
-
+        // Date.now() is not relative to the timezone
+        let leftDuration = Math.abs(currentRegistrationTime - Date.now()); // In milliseconds
     
         // Days part from the timestamp
         let days = Math.floor(leftDuration/(1000*60*60*24));
@@ -198,9 +197,9 @@ function updateCountdown(){
         let seconds = Math.floor(leftDuration/(1000))- days*24*60*60 - hours*60*60 - minutes*60;
     
         $("#days").html(days);
-        $("#hours").html(("0"+hours).substr(-2));
-        $("#minutes").html(("0"+minutes).substr(-2));
-        $("#seconds").html(("0"+seconds).substr(-2));
+        $("#hours").html(("0"+hours).slice(-2));
+        $("#minutes").html(("0"+minutes).slice(-2));
+        $("#seconds").html(("0"+seconds).slice(-2));
 
     }
 }
