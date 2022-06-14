@@ -11,7 +11,7 @@ app.use(device.capture());
 app.use(express.static(path.join(__dirname, 'static')));
 
 app.get('/', function(req, res){
-    console.log(req.device.type);
+    // To get the type of device requesting the website: console.log(req.device.type);
     if(req.device.type === "desktop"){
         res.sendFile(path.join(__dirname, 'static/html/desktop.html'))
     } else {
