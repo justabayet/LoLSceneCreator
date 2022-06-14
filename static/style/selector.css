@@ -3,8 +3,8 @@
     display:flex;
     justify-content: space-between;
     flex-direction: row;
-    width: 70vw;
-    left: 15vw;
+    width: 70%;
+    left: 15%;
 
     position: relative;
 }

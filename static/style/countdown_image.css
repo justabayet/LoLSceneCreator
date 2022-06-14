@@ -97,7 +97,7 @@
 
 
 #backgroundTextContainer{
-    width:calc(100vw - 20vh);
+    width:calc(100% - 20vh);
     height:40vh;
 
     position: absolute;
@@ -127,7 +127,7 @@
     background: linear-gradient(156deg, var(--bottom-color) 0%, var(--gold-color) 100%);
     box-sizing: border-box;
     position: absolute;
-    width:calc(100vw - 15vh);
+    width:calc(100% - 15vh);
     height:50vh;
     right:0vw;
     z-index: 2;
@@ -167,7 +167,7 @@
 
 @keyframes leavingToLeft{
     0% {transform: translateX(0%);}
-    100% {transform: translateX(-100vw);}
+    100% {transform: translateX(calc(-100% - 15vh));}
 }
 
 @keyframes appearingFromRight{

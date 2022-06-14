@@ -23,6 +23,9 @@ html, body{
 
 #main-container{
     position: relative;
+    max-width: 500px;
+    left: 50%;
+    transform: translateX(-50%);
     z-index: 0;
     color: rgba(0, 0, 0, 0.5);
     min-height: 100vh;
@@ -75,6 +78,28 @@ html, body{
 
 }*/
 
+#main-container::before{
+    position: absolute;
+    top:0;
+    right:100%;
+    width:50vw;
+    height: 100vh;
+    background-color: #191f1d;
+    content: "";
+    z-index: 100;
+}
+
+#main-container::after{
+    position: absolute;
+    top:0;
+    left:100%;
+    width:50vw;
+    height: 100vh;
+    background-color: #191f1d;
+    content: "";
+    z-index: 100;
+}
+
 
 @keyframes backgroundAnimation{
     0% {background-position-y: 0%;}
@@ -89,7 +114,7 @@ html, body{
     margin-top: 10vh;
     font-size: 12px;
     font-weight: normal;
-    color: #7474746e;
+    color: #e4e4e46c;
     text-align: center;
     z-index: 10;
 
