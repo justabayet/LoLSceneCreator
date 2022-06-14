@@ -6,32 +6,7 @@
 
     display:flex;
     justify-content: space-between;
-	
-	/*background:repeating-linear-gradient(
-		45deg, 
-		var(--gold-color) 25%,  
-		var(--gold-color) 40%,  
-		var(--bottom-color) 40% ,
-		var(--bottom-color) 50%, 
-		var(--gold-color) 50%,  
-		var(--gold-color) 65%,  
-		var(--bottom-color) 65% ,
-		var(--bottom-color) 75%
-	);
-	
-	background:repeating-linear-gradient(
-		45deg, 
-		var(--gold-color) 0%, 
-		var(--gold-color) 25%,  
-		var(--bottom-color) 25%,  
-		var(--bottom-color) 50%,
-		var(--gold-color) 50%, 
-		var(--gold-color) 75%,  
-		var(--bottom-color) 75%,  
-		var(--bottom-color) 100%
-	);*/
 
-	
 	background:repeating-linear-gradient(
 		45deg, 
 		var(--gold-color) 0%, 

@@ -49,35 +49,9 @@ html, body{
     animation-timing-function: linear;
     animation-iteration-count: infinite;
 }
-/*
-#main-container::before{
-    z-index: -1;
-    position: absolute;
-    top:0;
-    width: 100%;
-    height: 100%;
-    background:repeating-linear-gradient(
-        45deg, 
-        var(--bottom-color) 25%,  
-        var(--top-color) 50%, 
-        var(--bottom-color) 50%,  
-        var(--top-color) 75%
-    );
-    content: "";
 
-    animation-name:backgroundAnimation;
-
-    background-size:170vh 170vh;
-
-
-    animation-delay: 0s;
-
-    animation-duration: 50s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-
-}*/
-
+/* ::before and ::after are panels on both sides of the main-container.
+Their purpose is to hide the image and date-hider movements */
 #main-container::before{
     position: absolute;
     top:0;
