@@ -1,12 +1,9 @@
 const express = require('express');
-const device = require('express-device');
 const path = require('path');
 const https = require('https');
 const fs = require('fs');
 
 const app = express();
-
-app.use(device.capture());
 
 app.use(express.static(path.join(__dirname, 'static')));
 
