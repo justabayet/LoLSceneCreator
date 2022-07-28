@@ -10,10 +10,6 @@ app.use(device.capture());
 
 app.use(express.static(path.join(__dirname, 'static')));
 
-app.get('/', function(req, res){
-    res.sendFile(path.join(__dirname, 'static/index.html'));
-});
-
 app.get('/clashData', function(req, res){
     console.log(req.query.region);
     // console.log(clashDataList[req.query.region]);
