@@ -1,3 +1,8 @@
 node_modules
 api_key.txt
 assets
+.elasticbeanstalk/
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
