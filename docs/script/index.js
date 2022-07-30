@@ -52,92 +52,93 @@ function createDropdown(){
 createDropdown();
 
 
+function initialize(clashData){
+    
+    clashList.initialize(clashData);
+
+    updateSelectors();
+    swapViews();
+    setTimeout(() => {
+        updateCoolDivs();
+    }, 500);
+    updateCountdownLoop = setInterval( updateCountdown, 500);
+
+}
+
 function getClashData(){
     $.get(url, {region:$("#regionSelectorDropbtn").html()}, (data, status) => {
-        if(status != "success")
-        {
-            // Mock data
-            data = {
-                clashData: [
-                  {
-                    id: 2681,
-                    themeId: 19,
-                    nameKey: 'mock1',
-                    nameKeySecondary: 'day_2',
-                    schedule: [
-                        {
-                          id: 2801,
-                          registrationTime: 1613922300000,
-                          startTime: 1613937600000,
-                          cancelled: false
-                        }
-                      ]
-                  },
-                  {
-                    id: 2662,
-                    themeId: 19,
-                    nameKey: 'mock1',
-                    nameKeySecondary: 'day_4',
-                    schedule: [
-                        {
-                          id: 2782,
-                          registrationTime: 1615131900000,
-                          startTime: 1615147200000,
-                          cancelled: false
-                        }
-                      ]
-                  },
-                  {
-                    id: 2701,
-                    themeId: 19,
-                    nameKey: 'mock2',
-                    nameKeySecondary: 'day_3',
-                    schedule: [
-                        {
-                          id: 2821,
-                          registrationTime: 1615045500000,
-                          startTime: 1615060800000,
-                          cancelled: false
-                        }
-                      ]
-                  },
-                  {
-                    id: 2661,
-                    themeId: 19,
-                    nameKey: 'mock2',
-                    nameKeySecondary: 'day_1',
-                    schedule: [
-                        {
-                          id: 2781,
-                          registrationTime: 1613835900000,
-                          startTime: 1613851200000,
-                          cancelled: false
-                        }
-                      ]
-                  }
-                ],
-                updateTime: 1611437305211
-              };
-        }
-        
-        Log.debug(status);
         
         if(data.clashData != null){
             Log.debug(data.clashData);
             Log.debug(data.updateTime);
         }
 
-        //$("#lastupdate").html("Last update on : " + (new Date(data.updateTime)).toString());
+        initialize(data.clashData);
     
-        clashList.initialize(data.clashData);
+    }).fail(function() {
+        let now = Date.now();
+        let one_hour = 60 * 60 * 1000
+        let one_day = 24 * one_hour
 
-        updateSelectors();
-        swapViews();
-        setTimeout(() => {
-            updateCoolDivs();
-        }, 500);
-        updateCountdownLoop = setInterval( updateCountdown, 500);
-    
+        clashData = [
+            {
+                id: 2681,
+                themeId: 19,
+                nameKey: 'mock1',
+                nameKeySecondary: 'day_1',
+                schedule: [
+                    {
+                        id: 2801,
+                        registrationTime: now + one_day,
+                        startTime: now + one_day + one_hour,
+                        cancelled: false
+                    }
+                ]
+            },
+            {
+                id: 2662,
+                themeId: 19,
+                nameKey: 'mock1',
+                nameKeySecondary: 'day_2',
+                schedule: [
+                    {
+                        id: 2782,
+                        registrationTime: now + one_day * 2,
+                        startTime: now + one_day * 2 + one_hour,
+                        cancelled: false
+                    }
+                ]
+            },
+            {
+                id: 2701,
+                themeId: 19,
+                nameKey: 'mock2',
+                nameKeySecondary: 'day_1',
+                schedule: [
+                    {
+                        id: 2821,
+                        registrationTime: now + one_day * 7,
+                        startTime: now + one_day * 7 + one_hour,
+                        cancelled: false
+                    }
+                ]
+            },
+            {
+                id: 2661,
+                themeId: 19,
+                nameKey: 'mock2',
+                nameKeySecondary: 'day_2',
+                schedule: [
+                    {
+                        id: 2781,
+                        registrationTime: now + one_day * 8,
+                        startTime: now + one_day * 8 + one_hour,
+                        cancelled: false
+                    }
+                ]
+            }
+        ];
+        initialize(clashData);
     });
 }
 getClashData();
