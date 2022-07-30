@@ -1,7 +1,5 @@
-.gitignore
 node_modules
 routes/api_key.txt
-assets
 .elasticbeanstalk/
 # Elastic Beanstalk Files
 .elasticbeanstalk/*

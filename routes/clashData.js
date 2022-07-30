@@ -72,7 +72,7 @@ let mockData = {
     {
       id: 2681,
       themeId: 19,
-      nameKey: 'zaun_deadaezd_deazdaezda',
+      nameKey: 'zaun',
       nameKeySecondary: 'day_2',
       schedule: [
           {
