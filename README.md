@@ -1,7 +1,5 @@
 # whenisnextlolclash
 
-![alt text](winlc_screenshot.png)
-
 ## Clash?
 Riot Games organizes one-time community tournaments for its game League Of Legends called *clash* tournaments. These tournaments are held no more than once a month, and during these events, a large number of players log in to the game to participate in the tournament. These are important events for some players who need to gather friends to create a team of 5 players. The players have to organize themselves according to the schedule set by Riot Games.
 
