@@ -26,13 +26,29 @@
   },
   "homepage": "https://github.com/justabayet/whenisnextlolclash#readme",
   "devDependencies": {
+    "@types/dat.gui": "^0.7.12",
+    "@types/stats.js": "^0.17.3",
+    "@typescript-eslint/eslint-plugin": "^6.13.1",
     "copy-webpack-plugin": "^11.0.0",
     "css-loader": "^6.8.1",
+    "dat.gui": "^0.7.9",
+    "eslint": "^8.55.0",
+    "eslint-config-standard-with-typescript": "^40.0.0",
+    "eslint-plugin-css": "^0.8.1",
+    "eslint-plugin-import": "^2.29.0",
+    "eslint-plugin-n": "^16.3.1",
+    "eslint-plugin-promise": "^6.1.1",
     "html-webpack-plugin": "^5.5.3",
+    "stats.js": "^0.17.0",
     "style-loader": "^3.3.3",
     "ts-loader": "^9.4.4",
     "webpack": "^5.88.2",
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^4.15.1"
+  },
+  "dependencies": {
+    "d3-dispatch": "^3.0.1",
+    "pako": "^2.1.0",
+    "three": "^0.159.0"
   }
 }
