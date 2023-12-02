@@ -1461,7 +1461,7 @@ Model.prototype.getAnimation = function (name) {
 
 Model.prototype.setAnimation = function (name) {
   var self = this;
-  if (name == "默认动作") {
+  if (name == "default") {
     self.setDefaultAnimation();
   } else {
     self.animName = name;
@@ -1473,7 +1473,7 @@ Model.prototype.setAnimation = function (name) {
 
 Model.prototype.setAnimationOnce = function (name) {
   var self = this;
-  if (name == "默认动作") {
+  if (name == "default") {
     self.setDefaultAnimation();
   } else {
     if (self.getAnimation(name) !== -1) {
@@ -1880,7 +1880,7 @@ LOLLoader.prototype.load = function (url, options) {
         mesh.userData.type = "lol";
         mesh.userData.model = model;
         mesh.userData.animations = model.getAnimations().sort();
-        mesh.userData.animations.unshift("默认动作");
+        mesh.userData.animations.unshift("default");
 
         if (!static_) {
           model.setDefaultAnimation();

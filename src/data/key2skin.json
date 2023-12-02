@@ -1,0 +1,1211 @@
+{
+  "1": [
+    "default",
+    "Goth Annie",
+    "Red Riding Annie",
+    "Annie in Wonderland",
+    "Prom Queen Annie",
+    "Frostfire Annie",
+    "Reverse Annie",
+    "FrankenTibbers Annie",
+    "Panda Annie",
+    "Sweetheart Annie",
+    "Hextech Annie"
+  ],
+  "2": [
+    "default",
+    "Forsaken Olaf",
+    "Glacial Olaf",
+    "Brolaf",
+    "Pentakill Olaf",
+    "Marauder Olaf",
+    "Butcher Olaf"
+  ],
+  "3": [
+    "default",
+    "Enchanted Galio",
+    "Hextech Galio",
+    "Commando Galio",
+    "Gatekeeper Galio",
+    "Debonair Galio"
+  ],
+  "4": [
+    "default",
+    "PAX Twisted Fate",
+    "Jack of Hearts Twisted Fate",
+    "The Magnificent Twisted Fate",
+    "Tango Twisted Fate",
+    "High Noon Twisted Fate",
+    "Musketeer Twisted Fate",
+    "Underworld Twisted Fate",
+    "Red Card Twisted Fate",
+    "Cutpurse Twisted Fate",
+    "Blood Moon Twisted Fate"
+  ],
+  "5": [
+    "default",
+    "Commando Xin Zhao",
+    "Imperial Xin Zhao",
+    "Viscero Xin Zhao",
+    "Winged Hussar Xin Zhao",
+    "Warring Kingdoms Xin Zhao",
+    "Secret Agent Xin Zhao",
+    "Dragonslayer Xin Zhao"
+  ],
+  "6": [
+    "default",
+    "Giant Enemy Crabgot",
+    "Butcher Urgot",
+    "Battlecast Urgot"
+  ],
+  "7": [
+    "default",
+    "Wicked LeBlanc",
+    "Prestigious LeBlanc",
+    "Mistletoe LeBlanc",
+    "Ravenborn LeBlanc",
+    "Elderwood LeBlanc"
+  ],
+  "8": [
+    "default",
+    "Count Vladimir",
+    "Marquis Vladimir",
+    "Nosferatu Vladimir",
+    "Vandal Vladimir",
+    "Blood Lord Vladimir",
+    "Soulstealer Vladimir",
+    "Academy Vladimir"
+  ],
+  "9": [
+    "default",
+    "Spectral Fiddlesticks",
+    "Union Jack Fiddlesticks",
+    "Bandito Fiddlesticks",
+    "Pumpkinhead Fiddlesticks",
+    "Fiddle Me Timbers",
+    "Surprise Party Fiddlesticks",
+    "Dark Candy Fiddlesticks",
+    "Risen Fiddlesticks"
+  ],
+  "10": [
+    "default",
+    "Silver Kayle",
+    "Viridian Kayle",
+    "Transcended Kayle",
+    "Battleborn Kayle",
+    "Judgment Kayle",
+    "Aether Wing Kayle",
+    "Riot Kayle",
+    "Iron Inquisitor Kayle"
+  ],
+  "11": [
+    "default",
+    "Assassin Master Yi",
+    "Chosen Master Yi",
+    "Ionia Master Yi",
+    "Samurai Yi",
+    "Headhunter Master Yi",
+    "PROJECT: Yi",
+    "Cosmic Blade Master Yi",
+    "Eternal Sword Yi",
+    "Snow Man Yi",
+    "Blood Moon Master Yi"
+  ],
+  "12": [
+    "default",
+    "Black Alistar",
+    "Golden Alistar",
+    "Matador Alistar",
+    "Longhorn Alistar",
+    "Unchained Alistar",
+    "Infernal Alistar",
+    "Sweeper Alistar",
+    "Marauder Alistar",
+    "SKT T1 Alistar"
+  ],
+  "13": [
+    "default",
+    "Young Ryze",
+    "Tribal Ryze",
+    "Uncle Ryze",
+    "Triumphant Ryze",
+    "Professor Ryze",
+    "Zombie Ryze",
+    "Dark Crystal Ryze",
+    "Pirate Ryze",
+    "Ryze Whitebeard"
+  ],
+  "14": [
+    "default",
+    "Hextech Sion",
+    "Barbarian Sion",
+    "Lumberjack Sion",
+    "Warmonger Sion",
+    "Mecha Zero Sion"
+  ],
+  "15": [
+    "default",
+    "Warrior Princess Sivir",
+    "Spectacular Sivir",
+    "Huntress Sivir",
+    "Bandit Sivir",
+    "PAX Sivir",
+    "Snowstorm Sivir",
+    "Warden Sivir",
+    "Victorious Sivir"
+  ],
+  "16": [
+    "default",
+    "Dryad Soraka",
+    "Divine Soraka",
+    "Celestine Soraka",
+    "Reaper Soraka",
+    "Order of the Banana Soraka",
+    "Program Soraka"
+  ],
+  "17": [
+    "default",
+    "Happy Elf Teemo",
+    "Recon Teemo",
+    "Badger Teemo",
+    "Astronaut Teemo",
+    "Cottontail Teemo",
+    "Super Teemo",
+    "Panda Teemo",
+    "Omega Squad Teemo",
+    "Little Devil Teemo",
+    "Beemo",
+    "Spirit Blossom Teemo",
+    "Prestige Spirit Blossom Teemo",
+    "Firecracker Teemo",
+    "Space Groove Teemo"
+  ],
+  "18": [
+    "default",
+    "Riot Girl Tristana",
+    "Earnest Elf Tristana",
+    "Firefighter Tristana",
+    "Guerilla Tristana",
+    "Buccaneer Tristana",
+    "Rocket Girl Tristana",
+    "Dragon Trainer Tristana",
+    "Bewitching Tristana"
+  ],
+  "19": [
+    "default",
+    "Grey Warwick",
+    "Urf the Manatee",
+    "Big Bad Warwick",
+    "Tundra Hunter Warwick",
+    "Feral Warwick",
+    "Firefang Warwick",
+    "Hyena Warwick",
+    "Marauder Warwick"
+  ],
+  "20": [
+    "default",
+    "Sasquatch Nunu & Willump",
+    "Workshop Nunu & Willump",
+    "Grungy Nunu & Willump",
+    "Nunu & Willump Bot",
+    "Demolisher Nunu & Willump",
+    "TPA Nunu & Willump",
+    "Zombie Nunu & Willump"
+  ],
+  "21": [
+    "default",
+    "Cowgirl Miss Fortune",
+    "Waterloo Miss Fortune",
+    "Secret Agent Miss Fortune",
+    "Candy Cane Miss Fortune",
+    "Road Warrior Miss Fortune",
+    "Crime City Miss Fortune",
+    "Arcade Miss Fortune",
+    "Captain Fortune",
+    "Pool Party Miss Fortune"
+  ],
+  "22": [
+    "default",
+    "Freljord Ashe",
+    "Sherwood Forest Ashe",
+    "Woad Ashe",
+    "Queen Ashe",
+    "Amethyst Ashe",
+    "Heartseeker Ashe",
+    "Marauder Ashe",
+    "PROJECT: Ashe"
+  ],
+  "23": [
+    "default",
+    "Highland Tryndamere",
+    "King Tryndamere",
+    "Viking Tryndamere",
+    "Demonblade Tryndamere",
+    "Sultan Tryndamere",
+    "Warring Kingdoms Tryndamere",
+    "Nightmare Tryndamere",
+    "Beast Hunter Tryndamere",
+    "Chemtech Tryndamere"
+  ],
+  "24": [
+    "default",
+    "The Mighty Jax",
+    "Vandal Jax",
+    "Angler Jax",
+    "PAX Jax",
+    "Jaximus",
+    "Temple Jax",
+    "Nemesis Jax",
+    "SKT T1 Jax",
+    "Warden Jax"
+  ],
+  "25": [
+    "default",
+    "Exiled Morgana",
+    "Sinful Succulence Morgana",
+    "Blade Mistress Morgana",
+    "Blackthorn Morgana",
+    "Ghost Bride Morgana",
+    "Victorious Morgana",
+    "Lunar Wraith Morgana",
+    "Bewitching Morgana"
+  ],
+  "26": [
+    "default",
+    "Old Saint Zilean",
+    "Groovy Zilean",
+    "Shurima Desert Zilean",
+    "Time Machine Zilean",
+    "Blood Moon Zilean"
+  ],
+  "27": [
+    "default",
+    "Riot Squad Singed",
+    "Hextech Singed",
+    "Surfer Singed",
+    "Mad Scientist Singed",
+    "Augmented Singed",
+    "Snow Day Singed",
+    "SSW Singed",
+    "Black Scourge Singed"
+  ],
+  "28": [
+    "default",
+    "Shadow Evelynn",
+    "Masquerade Evelynn",
+    "Tango Evelynn",
+    "Safecracker Evelynn"
+  ],
+  "29": [
+    "default",
+    "Kingpin Twitch",
+    "Whistler Village Twitch",
+    "Medieval Twitch",
+    "Crime City Twitch",
+    "Vandal Twitch",
+    "Pickpocket Twitch",
+    "SSW Twitch"
+  ],
+  "30": [
+    "default",
+    "Phantom Karthus",
+    "Statue of Karthus",
+    "Grim Reaper Karthus",
+    "Pentakill Karthus",
+    "Fnatic Karthus",
+    "Karthus Lightsbane"
+  ],
+  "31": [
+    "default",
+    "Nightmare Cho'Gath",
+    "Gentleman Cho'Gath",
+    "Loch Ness Cho'Gath",
+    "Jurassic Cho'Gath",
+    "Battlecast Prime Cho'Gath",
+    "Prehistoric Cho'Gath"
+  ],
+  "32": [
+    "default",
+    "Pharaoh Amumu",
+    "Vancouver Amumu",
+    "Emumu",
+    "Re-Gifted Amumu",
+    "Almost-Prom King Amumu",
+    "Little Knight Amumu",
+    "Sad Robot Amumu",
+    "Surprise Party Amumu",
+    "Infernal Amumu"
+  ],
+  "33": [
+    "default",
+    "King Rammus",
+    "Chrome Rammus",
+    "Molten Rammus",
+    "Freljord Rammus",
+    "Ninja Rammus",
+    "Full Metal Rammus",
+    "Guardian of the Sands Rammus"
+  ],
+  "34": [
+    "default",
+    "Team Spirit Anivia",
+    "Bird of Prey Anivia",
+    "Noxus Hunter Anivia",
+    "Hextech Anivia",
+    "Blackfrost Anivia",
+    "Prehistoric Anivia",
+    "Festival Queen Anivia"
+  ],
+  "35": [
+    "default",
+    "Mad Hatter Shaco",
+    "Royal Shaco",
+    "Nutcracko",
+    "Workshop Shaco",
+    "Asylum Shaco",
+    "Masked Shaco",
+    "Wild Card Shaco"
+  ],
+  "36": [
+    "default",
+    "Toxic Dr. Mundo",
+    "Mr. Mundoverse",
+    "Corporate Mundo",
+    "Mundo Mundo",
+    "Executioner Mundo",
+    "Rageborn Mundo",
+    "TPA Mundo",
+    "Pool Party Mundo",
+    "El Macho Mundo"
+  ],
+  "37": [
+    "default",
+    "Muse Sona",
+    "Pentakill Sona",
+    "Silent Night Sona",
+    "Guqin Sona",
+    "Arcade Sona",
+    "DJ Sona",
+    "Sweetheart Sona"
+  ],
+  "38": [
+    "default",
+    "Festival Kassadin",
+    "Deep One Kassadin",
+    "Pre-Void Kassadin",
+    "Harbinger Kassadin",
+    "Cosmic Reaver Kassadin"
+  ],
+  "39": [
+    "default",
+    "Nightblade Irelia",
+    "Aviator Irelia",
+    "Infiltrator Irelia",
+    "Frostblade Irelia",
+    "Order of the Lotus Irelia"
+  ],
+  "40": [
+    "default",
+    "Tempest Janna",
+    "Hextech Janna",
+    "Frost Queen Janna",
+    "Victorious Janna",
+    "Forecast Janna",
+    "Fnatic Janna",
+    "Star Guardian Janna"
+  ],
+  "41": [
+    "default",
+    "Spooky Gangplank",
+    "Minuteman Gangplank",
+    "Sailor Gangplank",
+    "Toy Soldier Gangplank",
+    "Special Forces Gangplank",
+    "Sultan Gangplank",
+    "Captain Gangplank",
+    "Dreadnova Gangplank"
+  ],
+  "42": [
+    "default",
+    "UFO Corki",
+    "Ice Toboggan Corki",
+    "Red Baron Corki",
+    "Hot Rod Corki",
+    "Urfrider Corki",
+    "Dragonwing Corki",
+    "Fnatic Corki",
+    "Arcade Corki"
+  ],
+  "43": [
+    "default",
+    "Sun Goddess Karma",
+    "Sakura Karma",
+    "Traditional Karma",
+    "Order of the Lotus Karma",
+    "Warden Karma",
+    "Winter Wonder Karma",
+    "Conqueror Karma"
+  ],
+  "44": [
+    "default",
+    "Emerald Taric",
+    "Armor of the Fifth Age Taric",
+    "Bloodstone Taric",
+    "Pool Party Taric"
+  ],
+  "45": [
+    "default",
+    "White Mage Veigar",
+    "Curling Veigar",
+    "Veigar Greybeard",
+    "Leprechaun Veigar",
+    "Baron Von Veigar",
+    "Superb Villain Veigar",
+    "Bad Santa Veigar",
+    "Final Boss Veigar"
+  ],
+  "48": [
+    "default",
+    "Lil' Slugger Trundle",
+    "Junkyard Trundle",
+    "Traditional Trundle",
+    "Constable Trundle",
+    "Worldbreaker Trundle"
+  ],
+  "50": [
+    "default",
+    "Northern Front Swain",
+    "Bilgewater Swain",
+    "Tyrant Swain"
+  ],
+  "51": [
+    "default",
+    "Resistance Caitlyn",
+    "Sheriff Caitlyn",
+    "Safari Caitlyn",
+    "Arctic Warfare Caitlyn",
+    "Officer Caitlyn",
+    "Headhunter Caitlyn",
+    "Lunar Wraith Caitlyn",
+    "Pulsefire Caitlyn",
+    "Pool Party Caitlyn",
+    "Arcade Caitlyn",
+    "Prestige Arcade Caitlyn"
+  ],
+  "53": [
+    "default",
+    "Rusty Blitzcrank",
+    "Goalkeeper Blitzcrank",
+    "Boom Boom Blitzcrank",
+    "Piltover Customs Blitzcrank",
+    "Definitely Not Blitzcrank",
+    "iBlitzcrank",
+    "Riot Blitzcrank",
+    "Battle Boss Blitzcrank",
+    "Lancer Rogue Blitzcrank"
+  ],
+  "54": [
+    "default",
+    "Shamrock Malphite",
+    "Coral Reef Malphite",
+    "Marble Malphite",
+    "Obsidian Malphite",
+    "Glacial Malphite",
+    "Mecha Malphite",
+    "Ironside Malphite"
+  ],
+  "55": [
+    "default",
+    "Mercenary Katarina",
+    "Red Card Katarina",
+    "Bilgewater Katarina",
+    "Kitty Cat Katarina",
+    "High Command Katarina",
+    "Sandstorm Katarina",
+    "Slay Belle Katarina",
+    "Warring Kingdoms Katarina"
+  ],
+  "56": [
+    "default",
+    "Frozen Terror Nocturne",
+    "Void Nocturne",
+    "Ravager Nocturne",
+    "Haunting Nocturne",
+    "Eternum Nocturne",
+    "Cursed Revenant Nocturne"
+  ],
+  "57": [
+    "default",
+    "Charred Maokai",
+    "Totemic Maokai",
+    "Festive Maokai",
+    "Haunted Maokai",
+    "Goalkeeper Maokai",
+    "Meowkai",
+    "Victorious Maokai"
+  ],
+  "58": [
+    "default",
+    "Galactic Renekton",
+    "Outback Renekton",
+    "Bloodfury Renekton",
+    "Rune Wars Renekton",
+    "Scorched Earth Renekton",
+    "Pool Party Renekton",
+    "Prehistoric Renekton",
+    "SKT T1 Renekton"
+  ],
+  "59": [
+    "default",
+    "Commando Jarvan IV",
+    "Dragonslayer Jarvan IV",
+    "Darkforge Jarvan IV",
+    "Victorious Jarvan IV",
+    "Warring Kingdoms Jarvan IV",
+    "Fnatic Jarvan IV"
+  ],
+  "60": [
+    "default",
+    "Death Blossom Elise",
+    "Victorious Elise",
+    "Blood Moon Elise",
+    "SKT T1 Elise"
+  ],
+  "61": [
+    "default",
+    "Gothic Orianna",
+    "Sewn Chaos Orianna",
+    "Bladecraft Orianna",
+    "TPA Orianna",
+    "Winter Wonder Orianna",
+    "Heartseeker Orianna",
+    "Dark Star Orianna"
+  ],
+  "62": [
+    "default",
+    "Volcanic Wukong",
+    "General Wukong",
+    "Jade Dragon Wukong",
+    "Underworld Wukong",
+    "Radiant Wukong"
+  ],
+  "63": [
+    "default",
+    "Apocalyptic Brand",
+    "Vandal Brand",
+    "Cryocore Brand",
+    "Zombie Brand",
+    "Spirit Fire Brand"
+  ],
+  "64": [
+    "default",
+    "Traditional Lee Sin",
+    "Acolyte Lee Sin",
+    "Dragon Fist Lee Sin",
+    "Muay Thai Lee Sin",
+    "Pool Party Lee Sin",
+    "SKT T1 Lee Sin",
+    "Knockout Lee Sin",
+    "God Fist Lee Sin",
+    "Playmaker Lee Sin",
+    "Nightbringer Lee Sin",
+    "Prestige Nightbringer Lee Sin"
+  ],
+  "67": [
+    "default",
+    "Vindicator Vayne",
+    "Aristocrat Vayne",
+    "Dragonslayer Vayne",
+    "Heartseeker Vayne",
+    "SKT T1 Vayne",
+    "Arclight Vayne"
+  ],
+  "68": [
+    "default",
+    "Rumble in the Jungle",
+    "Bilgerat Rumble",
+    "Super Galaxy Rumble"
+  ],
+  "69": [
+    "default",
+    "Desperada Cassiopeia",
+    "Siren Cassiopeia",
+    "Mythic Cassiopeia",
+    "Jade Fang Cassiopeia"
+  ],
+  "72": [
+    "default",
+    "Sandscourge Skarner",
+    "Earthrune Skarner",
+    "Battlecast Alpha Skarner",
+    "Guardian of the Sands Skarner"
+  ],
+  "74": [
+    "default",
+    "Alien Invader Heimerdinger",
+    "Blast Zone Heimerdinger",
+    "Piltover Customs Heimerdinger",
+    "Snowmerdinger",
+    "Hazmat Heimerdinger"
+  ],
+  "75": [
+    "default",
+    "Galactic Nasus",
+    "Pharaoh Nasus",
+    "Dreadknight Nasus",
+    "Riot K-9 Nasus",
+    "Infernal Nasus",
+    "Archduke Nasus",
+    "Worldbreaker Nasus"
+  ],
+  "76": [
+    "default",
+    "Snow Bunny Nidalee",
+    "Leopard Nidalee",
+    "French Maid Nidalee",
+    "Pharaoh Nidalee",
+    "Bewitching Nidalee",
+    "Headhunter Nidalee",
+    "Warring Kingdoms Nidalee",
+    "Challenger Nidalee"
+  ],
+  "77": [
+    "default",
+    "Black Belt Udyr",
+    "Primal Udyr",
+    "Spirit Guard Udyr",
+    "Definitely Not Udyr"
+  ],
+  "78": [
+    "default",
+    "Noxus Poppy",
+    "Lollipoppy",
+    "Blacksmith Poppy",
+    "Ragdoll Poppy",
+    "Battle Regalia Poppy",
+    "Scarlet Hammer Poppy",
+    "Star Guardian Poppy"
+  ],
+  "79": [
+    "default",
+    "Scuba Gragas",
+    "Hillbilly Gragas",
+    "Santa Gragas",
+    "Gragas, Esq.",
+    "Vandal Gragas",
+    "Oktoberfest Gragas",
+    "Superfan Gragas",
+    "Fnatic Gragas",
+    "Gragas Caskbreaker"
+  ],
+  "80": [
+    "default",
+    "Myrmidon Pantheon",
+    "Ruthless Pantheon",
+    "Perseus Pantheon",
+    "Full Metal Pantheon",
+    "Glaive Warrior Pantheon",
+    "Dragonslayer Pantheon",
+    "Zombie Slayer Pantheon",
+    "Baker Pantheon"
+  ],
+  "81": [
+    "default",
+    "Nottingham Ezreal",
+    "Striker Ezreal",
+    "Frosted Ezreal",
+    "Explorer Ezreal",
+    "Pulsefire Ezreal",
+    "TPA Ezreal",
+    "Debonair Ezreal",
+    "Ace of Spades Ezreal",
+    "Arcade Ezreal"
+  ],
+  "82": [
+    "default",
+    "Dragon Knight Mordekaiser",
+    "Infernal Mordekaiser",
+    "Pentakill Mordekaiser",
+    "Lord Mordekaiser",
+    "King of Clubs Mordekaiser"
+  ],
+  "83": [
+    "default",
+    "Undertaker Yorick",
+    "Pentakill Yorick"
+  ],
+  "84": [
+    "default",
+    "Stinger Akali",
+    "Infernal Akali",
+    "All-star Akali",
+    "Nurse Akali",
+    "Blood Moon Akali",
+    "Silverfang Akali",
+    "Headhunter Akali",
+    "Sashimi Akali"
+  ],
+  "85": [
+    "default",
+    "Deadly Kennen",
+    "Swamp Master Kennen",
+    "Karate Kennen",
+    "Kennen M.D.",
+    "Arctic Ops Kennen",
+    "Blood Moon Kennen",
+    "Super Kennen"
+  ],
+  "86": [
+    "default",
+    "Sanguine Garen",
+    "Desert Trooper Garen",
+    "Commando Garen",
+    "Dreadknight Garen",
+    "Rugged Garen",
+    "Steel Legion Garen",
+    "Rogue Admiral Garen",
+    "Warring Kingdoms Garen"
+  ],
+  "89": [
+    "default",
+    "Valkyrie Leona",
+    "Defender Leona",
+    "Iron Solari Leona",
+    "Pool Party Leona",
+    "PROJECT: Leona",
+    "Barbecue Leona",
+    "Solar Eclipse Leona",
+    "Lunar Eclipse Leona",
+    "Mecha Kingdoms Leona"
+  ],
+  "90": [
+    "default",
+    "Vizier Malzahar",
+    "Shadow Prince Malzahar",
+    "Djinn Malzahar",
+    "Overlord Malzahar",
+    "Snow Day Malzahar"
+  ],
+  "91": [
+    "default",
+    "Renegade Talon",
+    "Crimson Elite Talon",
+    "Dragonblade Talon",
+    "SSW Talon",
+    "Blood Moon Talon"
+  ],
+  "92": [
+    "default",
+    "Redeemed Riven",
+    "Crimson Elite Riven",
+    "Battle Bunny Riven",
+    "Worlds 2012 Riven",
+    "Dragonblade Riven",
+    "Arcade Riven",
+    "Reignited Worlds 2012 Riven",
+    "Dawnbringer Riven",
+    "Pulsefire Riven",
+    "Valiant Sword Riven",
+    "Prestige Valiant Sword Riven",
+    "Spirit Blossom Riven",
+    "Sentinel Riven",
+    "Battle Bunny Prime Riven",
+    "Prestige Valiant Sword Riven (2022)",
+    "Broken Covenant Riven"
+  ],
+  "96": [
+    "default",
+    "Caterpillar Kog'Maw",
+    "Sonoran Kog'Maw",
+    "Monarch Kog'Maw",
+    "Reindeer Kog'Maw",
+    "Lion Dance Kog'Maw",
+    "Deep Sea Kog'Maw",
+    "Jurassic Kog'Maw",
+    "Battlecast Kog'Maw",
+    "Pug'Maw"
+  ],
+  "98": [
+    "default",
+    "Frozen Shen",
+    "Yellow Jacket Shen",
+    "Surgeon Shen",
+    "Blood Moon Shen",
+    "Warlord Shen",
+    "TPA Shen"
+  ],
+  "99": [
+    "default",
+    "Sorceress Lux",
+    "Spellthief Lux",
+    "Commando Lux",
+    "Imperial Lux",
+    "Steel Legion Lux",
+    "Star Guardian Lux",
+    "Elementalist Lux",
+    "Lunar Empress Lux",
+    "Pajama Guardian Lux",
+    "Battle Academia Lux",
+    "Prestige Battle Academia Lux",
+    "Dark Cosmic Lux",
+    "Cosmic Lux",
+    "Space Groove Lux",
+    "Porcelain Lux",
+    "Soul Fighter Lux"
+  ],
+  "101": [
+    "default",
+    "Runeborn Xerath",
+    "Battlecast Xerath",
+    "Scorched Earth Xerath",
+    "Guardian of the Sands Xerath"
+  ],
+  "102": [
+    "default",
+    "Ironscale Shyvana",
+    "Boneclaw Shyvana",
+    "Darkflame Shyvana",
+    "Ice Drake Shyvana",
+    "Worlds 2014 Shyvana",
+    "Super Galaxy Shyvana"
+  ],
+  "103": [
+    "default",
+    "Dynasty Ahri",
+    "Midnight Ahri",
+    "Foxfire Ahri",
+    "Popstar Ahri",
+    "Challenger Ahri",
+    "Academy Ahri",
+    "Arcade Ahri",
+    "Star Guardian Ahri",
+    "K/DA Ahri",
+    "Prestige K/DA Ahri",
+    "Elderwood Ahri",
+    "Spirit Blossom Ahri",
+    "K/DA ALL OUT Ahri"
+  ],
+  "104": [
+    "default",
+    "Hired Gun Graves",
+    "Jailbreak Graves",
+    "Crime City Graves",
+    "Riot Graves",
+    "Pool Party Graves",
+    "Cutthroat Graves",
+    "Snow Day Graves"
+  ],
+  "105": [
+    "default",
+    "Atlantean Fizz",
+    "Tundra Fizz",
+    "Fisherman Fizz",
+    "Void Fizz",
+    "Cottontail Fizz",
+    "Super Galaxy Fizz"
+  ],
+  "106": [
+    "default",
+    "Thunder Lord Volibear",
+    "Northern Storm Volibear",
+    "Runeguard Volibear",
+    "Captain Volibear",
+    "El Rayo Volibear"
+  ],
+  "107": [
+    "default",
+    "Headhunter Rengar",
+    "Night Hunter Rengar",
+    "SSW Rengar"
+  ],
+  "110": [
+    "default",
+    "Blight Crystal Varus",
+    "Arclight Varus",
+    "Arctic Ops Varus",
+    "Heartseeker Varus",
+    "Varus Swiftbolt",
+    "Dark Star Varus"
+  ],
+  "111": [
+    "default",
+    "Abyssal Nautilus",
+    "Subterranean Nautilus",
+    "AstroNautilus",
+    "Warden Nautilus",
+    "Worldbreaker Nautilus"
+  ],
+  "112": [
+    "default",
+    "Full Machine Viktor",
+    "Prototype Viktor",
+    "Creator Viktor"
+  ],
+  "113": [
+    "default",
+    "Sabretusk Sejuani",
+    "Darkrider Sejuani",
+    "Traditional Sejuani",
+    "Bear Cavalry Sejuani",
+    "Poro Rider Sejuani",
+    "Beast Hunter Sejuani",
+    "Sejuani Dawnchaser"
+  ],
+  "114": [
+    "default",
+    "Royal Guard Fiora",
+    "Nightraven Fiora",
+    "Headmistress Fiora",
+    "PROJECT: Fiora",
+    "Pool Party Fiora"
+  ],
+  "115": [
+    "default",
+    "Mad Scientist Ziggs",
+    "Major Ziggs",
+    "Pool Party Ziggs",
+    "Snow Day Ziggs",
+    "Master Arcanist Ziggs"
+  ],
+  "117": [
+    "default",
+    "Bittersweet Lulu",
+    "Wicked Lulu",
+    "Dragon Trainer Lulu",
+    "Winter Wonder Lulu",
+    "Pool Party Lulu",
+    "Star Guardian Lulu"
+  ],
+  "119": [
+    "default",
+    "Soul Reaver Draven",
+    "Gladiator Draven",
+    "Primetime Draven",
+    "Pool Party Draven",
+    "Beast Hunter Draven",
+    "Draven Draven"
+  ],
+  "120": [
+    "default",
+    "Blood Knight Hecarim",
+    "Reaper Hecarim",
+    "Headless Hecarim",
+    "Arcade Hecarim",
+    "Elderwood Hecarim",
+    "Worldbreaker Hecarim"
+  ],
+  "121": [
+    "default",
+    "Mecha Kha'Zix",
+    "Guardian of the Sands Kha'Zix",
+    "Death Blossom Kha'Zix",
+    "Dark Star Kha'Zix"
+  ],
+  "122": [
+    "default",
+    "Lord Darius",
+    "Bioforge Darius",
+    "Woad King Darius",
+    "Dunkmaster Darius",
+    "Academy Darius",
+    "Dreadnova Darius"
+  ],
+  "126": [
+    "default",
+    "Full Metal Jayce",
+    "Debonair Jayce",
+    "Forsaken Jayce",
+    "Jayce Brighthammer"
+  ],
+  "127": [
+    "default",
+    "Bloodstone Lissandra",
+    "Blade Queen Lissandra",
+    "Program Lissandra"
+  ],
+  "131": [
+    "default",
+    "Dark Valkyrie Diana",
+    "Lunar Goddess Diana",
+    "Infernal Diana",
+    "Blood Moon Diana"
+  ],
+  "133": [
+    "default",
+    "Phoenix Quinn",
+    "Woad Scout Quinn",
+    "Corsair Quinn",
+    "Heartseeker Quinn"
+  ],
+  "134": [
+    "default",
+    "Justicar Syndra",
+    "Atlantean Syndra",
+    "Queen of Diamonds Syndra",
+    "Snow Day Syndra"
+  ],
+  "136": [
+    "default",
+    "Ashen Lord Aurelion Sol"
+  ],
+  "143": [
+    "default",
+    "Wildfire Zyra",
+    "Haunted Zyra",
+    "SKT T1 Zyra",
+    "Dragon Sorceress Zyra"
+  ],
+  "150": [
+    "default",
+    "Dino Gnar",
+    "Gentleman Gnar",
+    "Snow Day Gnar",
+    "El León Gnar"
+  ],
+  "154": [
+    "default",
+    "Special Weapon Zac",
+    "Pool Party Zac"
+  ],
+  "157": [
+    "default",
+    "High Noon Yasuo",
+    "PROJECT: Yasuo",
+    "Blood Moon Yasuo",
+    "Nightbringer Yasuo",
+    "Odyssey Yasuo",
+    "Battle Boss Yasuo",
+    "True Damage Yasuo",
+    "Prestige True Damage Yasuo"
+  ],
+  "161": [
+    "default",
+    "Battlecast Vel'Koz",
+    "Arclight Vel'Koz",
+    "Definitely Not Vel'Koz"
+  ],
+  "163": [
+    "default",
+    "Freljord Taliyah"
+  ],
+  "164": [
+    "default",
+    "Program Camille"
+  ],
+  "201": [
+    "default",
+    "Dragonslayer Braum",
+    "El Tigre Braum",
+    "Braum Lionheart",
+    "Santa Braum"
+  ],
+  "202": [
+    "default",
+    "High Noon Jhin",
+    "Blood Moon Jhin"
+  ],
+  "203": [
+    "default",
+    "Shadowfire Kindred",
+    "Super Galaxy Kindred"
+  ],
+  "222": [
+    "default",
+    "Crime City Jinx",
+    "Firecracker Jinx",
+    "Zombie Slayer Jinx",
+    "Star Guardian Jinx"
+  ],
+  "223": [
+    "default",
+    "Master Chef Tahm Kench",
+    "Urf Kench"
+  ],
+  "236": [
+    "default",
+    "Hired Gun Lucian",
+    "Striker Lucian",
+    "PROJECT: Lucian",
+    "Heartseeker Lucian",
+    "High Noon Lucian",
+    "Demacia Vice Lucian",
+    "Pulsefire Lucian"
+  ],
+  "238": [
+    "default",
+    "Shockblade Zed",
+    "SKT T1 Zed",
+    "PROJECT: Zed",
+    "Worlds 2016 Zed"
+  ],
+  "240": [
+    "default",
+    "Sir Kled"
+  ],
+  "245": [
+    "default",
+    "Sandstorm Ekko",
+    "Academy Ekko",
+    "PROJECT: Ekko"
+  ],
+  "266": [
+    "default",
+    "Justicar Aatrox",
+    "Mecha Aatrox",
+    "Sea Hunter Aatrox"
+  ],
+  "267": [
+    "default",
+    "Koi Nami",
+    "River Spirit Nami",
+    "Urf the Nami-tee",
+    "Deep Sea Nami"
+  ],
+  "268": [
+    "default",
+    "Galactic Azir",
+    "Gravelord Azir",
+    "SKT T1 Azir",
+    "Warring Kingdoms Azir"
+  ],
+  "412": [
+    "default",
+    "Deep Terror Thresh",
+    "Worlds 2013 Thresh",
+    "Blood Moon Thresh",
+    "SSW Thresh",
+    "Dark Star Thresh"
+  ],
+  "420": [
+    "default",
+    "Void Bringer Illaoi"
+  ],
+  "421": [
+    "default",
+    "Eternum Rek'Sai",
+    "Pool Party Rek'Sai"
+  ],
+  "427": [
+    "default",
+    "Candy King Ivern"
+  ],
+  "429": [
+    "default",
+    "Blood Moon Kalista",
+    "Worlds 2015 Kalista"
+  ],
+  "432": [
+    "default",
+    "Elderwood Bard",
+    "Snow Day Bard",
+    "Bard Bard"
+  ],
+  "497": [
+    "default",
+    "Cosmic Dawn Rakan"
+  ],
+  "498": [
+    "default",
+    "Cosmic Dusk Xayah"
+  ]
+}

@@ -3,6 +3,7 @@ import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import { LOLLoader } from "./lib/LOLLoader";
 import Stats from "stats.js";
 import { GUI } from "dat.gui";
+import { key2data, id2key, key2id, key2skin } from "./data";
 
 var container, stats, controls;
 var camera, scene, renderer, light;
@@ -13,21 +14,30 @@ var model = null;
 var ground = null;
 var groundFlag = false;
 
+let loadingOverlay = {
+  init: () => {
+    loadingOverlay.obj = document.getElementById("loading");
+  },
+  show: () => {
+    loadingOverlay.obj.style.display = "block";
+  },
+  hide: () => {
+    loadingOverlay.obj.style.display = "none";
+  },
+};
+
 var actionFolder = null;
 var skinFolder = null;
 var cycleControl = null;
-var championIndex = 266;
+var championKey = 266;
 var skinIndex = 0;
-var index2name = {};
-var name2index = {};
-var index2skin = {};
 var gui = new GUI();
 var options = {
-  英雄: "",
-  皮肤: "",
-  动作: "默认",
-  暂停: false,
-  提示: "支持键位QWERA",
+  Champion: "",
+  Skin: "",
+  Animation: "idle1",
+  Freeze: false,
+  Controls: "QWERA",
 };
 
 init();
@@ -82,7 +92,9 @@ function init() {
 
   initGUI();
 
-  $("#loading").show();
+  loadingOverlay.init();
+  loadingOverlay.show();
+
   initModel();
 
   renderer = new THREE.WebGLRenderer({ antialias: true });
@@ -123,20 +135,21 @@ function onKeyDown(event) {
 
 function initModel() {
   var loader = new LOLLoader();
-  loader.load([championIndex, skinIndex], { static: false }).then(
+  loader.load([championKey, skinIndex], { static: false }).then(
     function (object) {
       model = object;
+      console.log(model.userData);
       if (actionFolder) updateGUI(actionFolder, model.userData.animations);
       scene.add(ground);
       groundFlag = true;
       scene.add(object);
-      $("#loading").hide();
+      loadingOverlay.hide();
     },
     () => {
       console.log(scene, ground);
       scene.add(ground);
       groundFlag = true;
-      $("#loading").hide();
+      loadingOverlay.hide();
     }
   );
 }
@@ -161,79 +174,56 @@ function updateGUI(target, list) {
 }
 
 function initGUI() {
-  $.getJSON("assets/index2name.json", function (data) {
-    // load index2name
-    $.each(data, function (key, val) {
-      index2name[key] = val;
+  let names = Object.values(key2id)
+    .map((value) => value)
+    .sort(function (a, b) {
+      return a.localeCompare(b);
     });
-    // load index2skin
-    $.getJSON("assets/index2skin.json", function (data) {
-      $.each(data, function (key, val) {
-        index2skin[key] = val;
-      });
-      let sortedIndex = Object.keys(index2name).sort(function (a, b) {
-        return index2name[a].localeCompare(index2name[b]);
-      });
-      let names = sortedIndex.map((index) => index2name[index]);
-      let skins = sortedIndex.map((index) => index2skin[index]);
+  // have loaded two json
+  // init champion
+  options["Champion"] = key2id[championKey.toString()];
+  // only need to add once
+  gui.add(options, "Champion", names).onChange(function (id) {
+    scene.remove(ground);
+    groundFlag = false;
+    loadingOverlay.show();
+    championKey = id2key[id];
+    updateGUI(skinFolder, key2skin[championKey.toString()]);
+    skinIndex = 0;
+    if (model) {
+      scene.remove(model);
+    }
+    model = null;
+    initModel();
+  });
 
-      // have loaded two json
-      // init champion
-      options["英雄"] = index2name[championIndex.toString()];
-      // only need to add once
-      gui.add(options, "英雄", names).onChange(function (val) {
-        scene.remove(ground);
-        groundFlag = false;
-        $("#loading").show();
-        championIndex = name2index[val];
-        updateGUI(skinFolder, index2skin[championIndex.toString()]);
-        skinIndex = 0;
-        if (model) {
-          scene.remove(model);
+  options["Skin"] = key2skin[championKey.toString()][0];
+
+  skinFolder = gui
+    .add(options, "Skin", key2skin[championKey.toString()])
+    .onChange(function (val) {
+      scene.remove(ground);
+      groundFlag = false;
+      loadingOverlay.show();
+      for (let i = 0; i < key2skin[championKey.toString()].length; i++) {
+        if (key2skin[championKey.toString()][i] == val) {
+          skinIndex = i;
+          break;
         }
-        model = null;
-        initModel();
-      });
-
-      options["皮肤"] = index2skin[championIndex.toString()][0];
-
-      skinFolder = gui
-        .add(options, "皮肤", index2skin[championIndex.toString()])
-        .onChange(function (val) {
-          scene.remove(ground);
-          groundFlag = false;
-          $("#loading").show();
-          for (
-            let i = 0;
-            i < index2skin[championIndex.toString()].length;
-            i++
-          ) {
-            if (index2skin[championIndex.toString()][i] == val) {
-              skinIndex = i;
-              break;
-            }
-          }
-          if (model) {
-            scene.remove(model);
-          }
-          model = null;
-          initModel();
-        });
-      actionFolder = gui.add(options, "动作", []).onChange(function (val) {
-        model.userData.model.setAnimation(val);
-      });
-      gui.add(options, "暂停").onChange(function (val) {
-        model.userData.model.toggleAnimation(val);
-      });
-      gui.add(options, "提示");
+      }
+      if (model) {
+        scene.remove(model);
+      }
+      model = null;
+      initModel();
     });
+  actionFolder = gui.add(options, "Animation", []).onChange(function (val) {
+    model.userData.model.setAnimation(val);
   });
-
-  $.getJSON("assets/name2index.json", function (data) {
-    $.each(data, function (key, val) {
-      name2index[key] = val;
-    });
+  gui.add(options, "Freeze").onChange(function (val) {
+    model.userData.model.toggleAnimation(val);
   });
+  gui.add(options, "Controls");
 }
 
 function onWindowResize() {
