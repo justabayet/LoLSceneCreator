@@ -6,7 +6,7 @@ import { GUI } from 'dat.gui'
 import { id2key, key2id, key2skin } from './data'
 
 let container, stats, controls
-let camera, scene, renderer, light
+let camera, scene, renderer, light, spotlight
 
 const clock = new THREE.Clock()
 
@@ -73,15 +73,15 @@ function init () {
 
   light = new THREE.HemisphereLight(0xffffff, 0x444444)
   light.position.set(0, 400, 0)
-  scene.add(light)
+  // scene.add(light)
 
-  light = new THREE.SpotLight(0xffffff)
-  light.position.set(0, 400, 200)
-  light.shadow.camera.far = 5000
-  light.castShadow = true
-  scene.add(light)
+  spotlight = new THREE.SpotLight(0xff0000, 100, 0, undefined, undefined, 0)
+  spotlight.position.set(0, 400, 100)
+  spotlight.shadow.camera.far = 5000
+  spotlight.castShadow = true
+  scene.add(spotlight)
 
-  // scene.add( new THREE.CameraHelper( light.shadow.camera ) );
+  // scene.add( new THREE.CameraHelper( spotlight.shadow.camera ) );
 
   // var grid = new THREE.GridHelper(2000, 20, 0x000000, 0x000000);
   // grid.material.opacity = 0.2;
@@ -99,6 +99,7 @@ function init () {
   renderer.setPixelRatio(window.devicePixelRatio)
   renderer.setSize(window.innerWidth, window.innerHeight)
   renderer.shadowMap.enabled = true
+  renderer.shadowMap.type = THREE.PCFSoftShadowMap
   container.appendChild(renderer.domElement)
 
   controls = new OrbitControls(camera, renderer.domElement)
@@ -144,7 +145,6 @@ function initModel () {
       loadingOverlay.hide()
     },
     () => {
-      console.log(scene, ground)
       scene.add(ground)
       groundFlag = true
       loadingOverlay.hide()
@@ -237,5 +237,5 @@ function animate () {
   renderer.render(scene, camera)
   stats.update()
   if (model) model.userData.model.update(clock.getElapsedTime() * 1000)
-  if (ground && groundFlag) ground.rotateZ(0.5 * delta)
+  if (ground && groundFlag) ground.rotateZ(0.1 * delta)
 }
