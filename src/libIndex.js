@@ -5,7 +5,7 @@ import Stats from 'stats.js'
 import { GUI } from 'dat.gui'
 import { id2key, key2id, key2skin } from './data'
 
-let container, stats, controls
+let stats, controls
 let camera, scene, renderer, light, spotlight
 
 const clock = new THREE.Clock()
@@ -43,8 +43,7 @@ init()
 animate()
 
 function init () {
-  container = document.createElement('div')
-  document.body.appendChild(container)
+  const canvas = document.getElementById('canvas3D')
 
   camera = new THREE.PerspectiveCamera(
     45,
@@ -95,12 +94,13 @@ function init () {
 
   initModel()
 
-  renderer = new THREE.WebGLRenderer({ antialias: true })
+  renderer = new THREE.WebGLRenderer({ canvas, antialias: true })
   renderer.setPixelRatio(window.devicePixelRatio)
   renderer.setSize(window.innerWidth, window.innerHeight)
   renderer.shadowMap.enabled = true
   renderer.shadowMap.type = THREE.PCFSoftShadowMap
-  container.appendChild(renderer.domElement)
+
+  onWindowResize()
 
   controls = new OrbitControls(camera, renderer.domElement)
   controls.target.set(0, 100, 0)
@@ -111,7 +111,7 @@ function init () {
   window.addEventListener('keydown', onKeyDown, false)
 
   stats = new Stats()
-  container.appendChild(stats.dom)
+  document.body.appendChild(stats.dom)
 }
 
 function onKeyDown (event) {

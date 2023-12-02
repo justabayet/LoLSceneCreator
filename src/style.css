@@ -38,3 +38,10 @@ body {
   animation-iteration-count: infinite;
   animation-timing-function: linear;
 }
+
+canvas{
+  width: 100%;
+  height: 100%;
+  display: block;
+  z-index: 1;
+}
