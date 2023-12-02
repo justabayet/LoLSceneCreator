@@ -1855,10 +1855,7 @@ export function LOLLoader() {
 // LOLLoader.prototype = Object.create(BaseLoader.prototype);
 LOLLoader.prototype.constructor = LOLLoader;
 
-LOLLoader.prototype.load = function (url, options) {
-  var champion = url[0];
-  var skin = url[1];
-
+LOLLoader.prototype.load = function (champion, skin, options) {
   var static_ = options.static;
 
   return new Promise((resolve, reject) => {

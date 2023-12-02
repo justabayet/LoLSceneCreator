@@ -10,23 +10,26 @@ Currently, they have to go to news site to find it or the lol launcher to access
 
 This website is the one-stop solution for players who wants to plan ahead to rock the next clash.
 
+## Use Cases
+
+* Find out in one sec when is the next clash.
+* Easily browse the announced clashes to find one suitable.
+* Notify by email when a new clash is in sight.
+* Send an invite to friends about a clash to sync up (add an event to calendar).
+
 ## References
 
 LOL 3d models gallery based on [THREE.JS](https://threejs.org/)
 
 <!-- [View on GitHub Page](https://antct.github.io/lol-heroes) -->
 
-## Motivation
-
-[pissang/dota2hero: Online Dota2 hero viewer based on WebGL](https://github.com/pissang/dota2hero)
-
-## Models
+### Models
 
 [http://lolking.net](https://www.fanbyte.com/features/league-of-legends-model-viewer/)
 
-## LOLLoader
+### LOLLoader
 
 refer [Issue #23](https://github.com/tengge1/ShadowEditor/issues/23)
 
-## Base Project
+### Base Project
 [lol-heroes](https://github.com/antct/lol-heroes/tree/master)

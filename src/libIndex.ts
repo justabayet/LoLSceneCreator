@@ -1,20 +1,26 @@
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
-import { LOLLoader } from './lib/LOLLoader'
+import { LOLLoader, type MeshLoL } from './lib/LOLLoader'
 import Stats from 'three/examples/jsm/libs/stats.module.js'
-import { GUI } from 'dat.gui'
+import { GUI, type GUIController } from 'dat.gui'
 import { id2key, key2id, key2skin } from './data'
 
-let stats, controls
-let camera, scene, renderer, light, spotlight
+let stats: Stats
+let controls: OrbitControls
+let camera: THREE.PerspectiveCamera
+let scene: THREE.Scene
+let renderer: THREE.WebGLRenderer
+let light: THREE.HemisphereLight
+let spotlight: THREE.SpotLight
 
 const clock = new THREE.Clock()
 
-let model = null
-let ground = null
-let groundFlag = false
+let model: MeshLoL = null
+let ground: THREE.Mesh = null
+let groundFlag: boolean = false
 
 const loadingOverlay = {
+  obj: null as HTMLElement,
   init: () => {
     loadingOverlay.obj = document.getElementById('loading')
   },
@@ -26,9 +32,9 @@ const loadingOverlay = {
   }
 }
 
-let actionFolder = null
-let skinFolder = null
-let championKey = 266
+let actionFolder: GUIController = null
+let skinFolder: GUIController = null
+let championKey = '266'
 let skinIndex = 0
 const gui = new GUI()
 const options = {
@@ -42,7 +48,7 @@ const options = {
 init()
 animate()
 
-function init () {
+function init (): void {
   const canvas = document.getElementById('canvas3D')
 
   camera = new THREE.PerspectiveCamera(
@@ -54,10 +60,8 @@ function init () {
   camera.position.set(100, 200, 700)
 
   scene = new THREE.Scene()
-  // scene.background = new THREE.Color(0xa0a0a0);
-  // scene.fog = new THREE.Fog(0xa0a0a0, 200, 1000);
 
-  let textureLoader = new THREE.TextureLoader()
+  const textureLoader = new THREE.TextureLoader()
   textureLoader.load('assets/bg.png', function (texture) {
     const material = new THREE.MeshPhongMaterial({
       map: texture,
@@ -70,9 +74,9 @@ function init () {
     // scene.add(ground);
   })
 
-  light = new THREE.HemisphereLight(0xffffff, 0x444444)
+  light = new THREE.HemisphereLight(0xffffff, 0x444444, 0.5)
   light.position.set(0, 400, 0)
-  // scene.add(light)
+  scene.add(light)
 
   spotlight = new THREE.SpotLight(0xff0000, 100, 0, undefined, undefined, 0)
   spotlight.position.set(0, 400, 100)
@@ -114,28 +118,28 @@ function init () {
   document.body.appendChild(stats.dom)
 }
 
-function onKeyDown (event) {
-  if (event.keyCode === 81) {
+function onKeyDown (event: KeyboardEvent): void {
+  if (event.key === 'q') {
     model.userData.model.setAnimationOnce('spell1')
   }
-  if (event.keyCode === 87) {
+  if (event.key === 'w') {
     model.userData.model.setAnimationOnce('spell2')
   }
-  if (event.keyCode === 69) {
+  if (event.key === 'e') {
     model.userData.model.setAnimationOnce('spell3')
   }
-  if (event.keyCode === 82) {
+  if (event.key === 'r') {
     model.userData.model.setAnimationOnce('spell4')
   }
-  if (event.keyCode === 65) {
+  if (event.key === 'a') {
     model.userData.model.setAnimationOnce('attack1')
   }
 }
 
-function initModel () {
+function initModel (): void {
   const loader = new LOLLoader()
-  loader.load([championKey, skinIndex], { static: false }).then(
-    function (object) {
+  loader.load(championKey, skinIndex, { static: false }).then(
+    function (object: MeshLoL) {
       model = object
       console.log(model.userData)
       if (actionFolder) updateGUI(actionFolder, model.userData.animations)
@@ -152,27 +156,27 @@ function initModel () {
   )
 }
 
-function updateGUI (target, list) {
+function updateGUI (target: any, list: any): void {
   let innerHTMLStr = ''
-  if (list.constructor.name == 'Array') {
+  if (list.constructor.name === 'Array') {
     for (let i = 0; i < list.length; i++) {
-      var str = "<option value='" + list[i] + "'>" + list[i] + '</option>'
+      const str = "<option value='" + list[i] + "'>" + list[i] + '</option>'
       innerHTMLStr += str
     }
   }
 
-  if (list.constructor.name == 'Object') {
+  if (list.constructor.name === 'Object') {
     for (const key in list) {
-      var str = "<option value='" + list[key] + "'>" + key + '</option>'
+      const str = "<option value='" + list[key] + "'>" + key + '</option>'
       innerHTMLStr += str
     }
   }
-  if (innerHTMLStr != '') {
+  if (innerHTMLStr !== '') {
     target.domElement.children[0].innerHTML = innerHTMLStr
   }
 }
 
-function initGUI () {
+function initGUI (): void {
   const names = Object.values(key2id)
     .map((value) => value)
     .sort(function (a, b) {
@@ -180,14 +184,14 @@ function initGUI () {
     })
   // have loaded two json
   // init champion
-  options.Champion = key2id[championKey.toString()]
+  options.Champion = key2id[championKey]
   // only need to add once
   gui.add(options, 'Champion', names).onChange(function (id) {
     scene.remove(ground)
     groundFlag = false
     loadingOverlay.show()
     championKey = id2key[id]
-    updateGUI(skinFolder, key2skin[championKey.toString()])
+    updateGUI(skinFolder, key2skin[championKey])
     skinIndex = 0
     if (model) {
       scene.remove(model)
@@ -196,16 +200,16 @@ function initGUI () {
     initModel()
   })
 
-  options.Skin = key2skin[championKey.toString()][0]
+  options.Skin = key2skin[championKey][0]
 
   skinFolder = gui
-    .add(options, 'Skin', key2skin[championKey.toString()])
+    .add(options, 'Skin', key2skin[championKey])
     .onChange(function (val) {
       scene.remove(ground)
       groundFlag = false
       loadingOverlay.show()
-      for (let i = 0; i < key2skin[championKey.toString()].length; i++) {
-        if (key2skin[championKey.toString()][i] == val) {
+      for (let i = 0; i < key2skin[championKey].length; i++) {
+        if (key2skin[championKey][i] === val) {
           skinIndex = i
           break
         }
@@ -219,19 +223,19 @@ function initGUI () {
   actionFolder = gui.add(options, 'Animation', []).onChange(function (val) {
     model.userData.model.setAnimation(val)
   })
-  gui.add(options, 'Freeze').onChange(function (val) {
-    model.userData.model.toggleAnimation(val)
+  gui.add(options, 'Freeze').onChange(function () {
+    model.userData.model.toggleAnimation()
   })
   gui.add(options, 'Controls')
 }
 
-function onWindowResize () {
+function onWindowResize (): void {
   camera.aspect = window.innerWidth / window.innerHeight
   camera.updateProjectionMatrix()
   renderer.setSize(window.innerWidth, window.innerHeight)
 }
 
-function animate () {
+function animate (): void {
   requestAnimationFrame(animate)
   const delta = clock.getDelta()
   renderer.render(scene, camera)

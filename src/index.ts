@@ -1,5 +1,5 @@
 import './style.css'
-import './libIndex.js'
+import './libIndex'
 
 const CLASH_ENDPOINT = 'https://whenisnextlolclash.justabayet.com/clashes'
 
