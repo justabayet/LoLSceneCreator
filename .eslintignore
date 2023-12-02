@@ -1,3 +1,5 @@
 node_modules
-dist
-**.js
+public
+src/lib
+**/*.html
+**/*.js

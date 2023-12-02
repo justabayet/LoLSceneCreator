@@ -1,2 +1,2 @@
-import "./style.css"
-import "./libIndex.js"
+import './style.css'
+import './libIndex.js'
