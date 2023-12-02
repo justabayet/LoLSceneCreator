@@ -1,7 +1,7 @@
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
 import { LOLLoader } from './lib/LOLLoader'
-import Stats from 'stats.js'
+import Stats from 'three/examples/jsm/libs/stats.module.js'
 import { GUI } from 'dat.gui'
 import { id2key, key2id, key2skin } from './data'
 

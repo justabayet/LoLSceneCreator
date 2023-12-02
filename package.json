@@ -27,7 +27,6 @@
   "homepage": "https://github.com/justabayet/whenisnextlolclash#readme",
   "devDependencies": {
     "@types/dat.gui": "^0.7.12",
-    "@types/stats.js": "^0.17.3",
     "@typescript-eslint/eslint-plugin": "^6.13.1",
     "copy-webpack-plugin": "^11.0.0",
     "css-loader": "^6.8.1",
@@ -39,7 +38,6 @@
     "eslint-plugin-n": "^16.3.1",
     "eslint-plugin-promise": "^6.1.1",
     "html-webpack-plugin": "^5.5.3",
-    "stats.js": "^0.17.0",
     "style-loader": "^3.3.3",
     "ts-loader": "^9.4.4",
     "webpack": "^5.88.2",
