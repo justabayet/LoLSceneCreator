@@ -1362,6 +1362,8 @@ function Model(options) {
   self.baseUrl = "assets/";
   self.meshUrl = self.baseUrl + `models/${self.champion}_${self.skin}.lmesh`;
 
+  self.setFrame = options.setFrame != null ? options.setFrame : 0;
+
   self.loaded = false;
   self.animsLoaded = false;
 
@@ -1371,6 +1373,7 @@ function Model(options) {
   self.transforms = null;
   self.bones = null;
   self.boneLookup = {};
+  self.enableTexture = options.enableTexture != null ? options.enableTexture: true;
   self.animIndex = -1;
   self.animName = null;
   self.baseAnim = null;
@@ -1564,8 +1567,14 @@ Model.prototype.update = function (time) {
 
   if (self.animStatus) {
     var timePerFrame = 1e3 / anim.fps;
-    var frame = Math.floor(self.deltaTime / timePerFrame);
-    var r = (self.deltaTime % timePerFrame) / timePerFrame;
+    var r, frame
+    if(self.setFrame == null) {
+      frame = Math.floor(self.deltaTime / timePerFrame);
+      r = (self.deltaTime % timePerFrame) / timePerFrame;
+    } else {
+      frame = Math.floor(self.setFrame)
+      r = self.setFrame - frame
+    }
     var hiddenBones = {};
     if (self.hiddenBones) {
       if (self.hiddenBones[anim.name]) {
@@ -1718,7 +1727,7 @@ Model.prototype.loadMesh = function (buffer) {
       }
     );
   }
-  if (textureFile && textureFile.length > 0) {
+  if (self.enableTexture && textureFile && textureFile.length > 0) {
     self.texture = new Texture$1(
       self,
       self.baseUrl + `textures/${self.champion}/` + textureFile + ".png"
@@ -1862,6 +1871,8 @@ LOLLoader.prototype.load = function (champion, skin, options) {
     var model = new Model({
       champion: champion,
       skin: parseInt(skin),
+      enableTexture: options.enableTexture,
+      setFrame: options.setFrame
     });
     model.load();
     model.on("load.LOLLoader", () => {
@@ -1880,7 +1891,7 @@ LOLLoader.prototype.load = function (champion, skin, options) {
         mesh.userData.animations.unshift("default");
 
         if (!static_) {
-          model.setDefaultAnimation();
+          options.animName ? model.setAnimation(options.animName): model.setDefaultAnimation();
         }
 
         resolve(mesh);

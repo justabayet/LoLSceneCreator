@@ -23,4 +23,10 @@ const id2key = id2key_ as Record<string, string>
 const key2data = key2data_ as Record<string, ChampionData>
 const key2skin = key2skin_ as Record<string, string[]>
 
-export { key2id, id2key, key2data, key2skin }
+const championNames = Object.values(key2id)
+  .map((value) => value)
+  .sort(function (a, b) {
+    return a.localeCompare(b)
+  })
+
+export { key2id, id2key, key2data, key2skin, championNames }
