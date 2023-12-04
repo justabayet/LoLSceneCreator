@@ -13,7 +13,7 @@ const options = {
 
 function addChampionToGUI (champion: Champion): void {
   const { index, championKey, skinIndex } = champion
-  const championFolder = gui.addFolder(`Champion ${index + 1}`)
+  const championFolder = gui.addFolder(`Champion ${index}`)
   championFolder.open()
 
   options.Champion = key2id[championKey]
