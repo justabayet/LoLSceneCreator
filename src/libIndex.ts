@@ -1,11 +1,12 @@
 import { LOLLoader, type MeshLoL } from './lib/LOLLoader'
-import { type Champion, state, loadingOverlay } from './state'
+import { type Champion, state, loadingOverlay, gui } from './state'
 import { setupControls } from './controls'
 import { animate, setupScene } from './scene'
 import * as THREE from 'three'
 import { addChampionToGUI, initGUI } from './gui'
 import { type SceneConfig } from './types'
-import { testScene2 } from './scenes'
+import { defaultScene } from './scenes'
+import './setupModal'
 
 const DEFAULT_CHAMPION_KEY = '266'
 const DEFAULT_SKIN_INDEX = 0
@@ -22,7 +23,27 @@ function getNewChampion (): Champion {
   }
 }
 
-function loadSceneConfig (config: SceneConfig): void {
+export function deleteChampion (champion: Champion): void {
+  const championId = state.champions.findIndex((existingChampion) => existingChampion.index === champion.index)
+  if (champion.mesh) state.scene.remove(champion.mesh)
+
+  state.champions.splice(championId, 1)
+
+  if (champion.folder) gui.removeFolder(champion.folder)
+}
+
+function resetScene (): void {
+  while (state.champions.length > 0) {
+    const champion = state.champions[0]
+    deleteChampion(champion)
+  }
+}
+
+export function loadSceneConfig (config: SceneConfig): void {
+  resetScene()
+
+  state.currentSceneConfig = config
+
   config.forEach(({ championKey, skinIndex, position, rotation, setFrame, animName }) => {
     void loadChampionConfig(championKey, skinIndex, new THREE.Vector3(position.x, position.y, position.z), new THREE.Vector3(rotation.x, rotation.y, rotation.z), setFrame, animName)
   })
@@ -37,7 +58,7 @@ export async function init (): Promise<void> {
 
   initGUI()
 
-  loadSceneConfig(testScene2)
+  loadSceneConfig(defaultScene)
 
   animate()
 }

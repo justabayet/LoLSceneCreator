@@ -29,13 +29,11 @@ function setupScene (): void {
   textureLoader.load('assets/bg.png', function (texture) {
     const material = new THREE.MeshPhongMaterial({
       map: texture,
-      // side: THREE.DoubleSide,
       depthWrite: true
     })
     state.ground = new THREE.Mesh(new THREE.CircleGeometry(300, 100), material)
     state.ground.rotation.x = -Math.PI / 2
     state.ground.receiveShadow = true
-    // scene.add(ground);
   })
 
   light = new THREE.HemisphereLight(0xffffff, 0x444444, 0.05)

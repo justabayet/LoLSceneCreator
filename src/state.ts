@@ -1,11 +1,14 @@
+import { GUI } from 'dat.gui'
 import { type MeshLoL } from './lib/LOLLoader'
 import * as THREE from 'three'
+import { type SceneConfig } from './types'
 
 interface Champion {
   mesh?: MeshLoL
   championKey: string
   skinIndex: number
   index: number
+  folder?: GUI
 }
 
 interface State {
@@ -13,6 +16,7 @@ interface State {
   scene: THREE.Scene
   ground?: THREE.Mesh
   groundFlag: boolean
+  currentSceneConfig?: SceneConfig
 }
 
 const state: State = {
@@ -34,5 +38,31 @@ const loadingOverlay = {
     loadingOverlay.obj.style.display = 'none'
   }
 }
+const gui = new GUI()
 
-export { state, type Champion, loadingOverlay }
+function getRunningScene (): string {
+  const report = state.champions.map((champion: Champion) => {
+    return {
+      championKey: champion.championKey,
+      skinIndex: champion.skinIndex,
+      position: {
+        x: champion.mesh.position.x,
+        y: champion.mesh.position.y,
+        z: champion.mesh.position.z
+      },
+      rotation: {
+        x: champion.mesh.rotation.x,
+        y: champion.mesh.rotation.y,
+        z: champion.mesh.rotation.z
+      },
+      setFrame: champion.mesh.userData.model.setFrame,
+      animName: champion.mesh.userData.model.animName
+    }
+  })
+
+  const exportableReport = JSON.stringify(report, null, 2)
+
+  return exportableReport
+}
+
+export { state, type Champion, loadingOverlay, gui, getRunningScene }

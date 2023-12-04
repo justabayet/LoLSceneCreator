@@ -1,41 +1,6 @@
 import { type SceneConfig } from './types'
 
-export const testScene: SceneConfig = [
-  {
-    championKey: '266',
-    skinIndex: 0,
-    position: {
-      x: -200,
-      y: 0,
-      z: 0
-    },
-    rotation: {
-      x: 0,
-      y: 1.5707963267948966,
-      z: 0
-    },
-    setFrame: 0,
-    animName: 'idle_ult'
-  },
-  {
-    championKey: '266',
-    skinIndex: 0,
-    position: {
-      x: -200,
-      y: 0,
-      z: 0
-    },
-    rotation: {
-      x: 0,
-      y: 1.5707963267948966,
-      z: 0
-    },
-    setFrame: 0,
-    animName: 'idle1'
-  }
-]
-
-export const testScene2: SceneConfig = [
+export const defaultScene: SceneConfig = [
   {
     championKey: '266',
     skinIndex: 0,

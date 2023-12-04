@@ -1,10 +1,9 @@
-import { GUI } from 'dat.gui'
-import { type Champion, loadingOverlay, state } from './state'
+import { type Champion, loadingOverlay, state, gui } from './state'
 import { championNames, id2key, key2id, key2skin } from './data'
-import { initMeshChampion, newChampion } from './libIndex'
+import { initMeshChampion, loadSceneConfig, newChampion } from './libIndex'
 import * as THREE from 'three'
+import { modalExport, modalInputScene } from './setupModal'
 
-const gui = new GUI()
 const options = {
   Champion: '',
   Skin: '',
@@ -25,24 +24,36 @@ function addChampionToGUI (champion: Champion): void {
   const animationSelector = championFolder.add(options, 'Animation', champion.mesh.userData.animations)
 
   const settingsFolder = championFolder.addFolder('settings')
-  const rotationFolder = settingsFolder.addFolder('rotation')
-  rotationFolder.add(champion.mesh.rotation, 'x', 0, Math.PI * 2)
-  rotationFolder.add(champion.mesh.rotation, 'y', 0, Math.PI * 2)
-  rotationFolder.add(champion.mesh.rotation, 'z', 0, Math.PI * 2)
 
-  const positionFolder = settingsFolder.addFolder('position')
-  positionFolder.add(champion.mesh.position, 'x', -300, 300)
-  positionFolder.add(champion.mesh.position, 'y', -300, 300)
-  positionFolder.add(champion.mesh.position, 'z', -300, 300)
+  let rotationFolder = settingsFolder.addFolder('rotation')
+  function loadRotationFolder (): void {
+    settingsFolder.removeFolder(rotationFolder)
+    rotationFolder = settingsFolder.addFolder('rotation')
+    rotationFolder.add(champion.mesh.rotation, 'x', 0, Math.PI * 2)
+    rotationFolder.add(champion.mesh.rotation, 'y', 0, Math.PI * 2)
+    rotationFolder.add(champion.mesh.rotation, 'z', 0, Math.PI * 2)
+  }
+  loadRotationFolder()
+
+  let positionFolder = settingsFolder.addFolder('position')
+  function loadPositionFolder (): void {
+    settingsFolder.removeFolder(positionFolder)
+    positionFolder = settingsFolder.addFolder('position')
+    positionFolder.add(champion.mesh.position, 'x', -300, 300)
+    positionFolder.add(champion.mesh.position, 'y', -300, 300)
+    positionFolder.add(champion.mesh.position, 'z', -300, 300)
+  }
+  loadPositionFolder()
 
   settingsFolder.open()
-  console.log(champion.mesh.userData.model)
   let frameSelector = settingsFolder.add(champion.mesh.userData.model, 'setFrame', 0, 10)
 
   function updateFrameSelector (): void {
     settingsFolder.remove(frameSelector)
 
-    const nbFrames = (champion.mesh.userData.model as any).animations[0].bones[0].frames.length
+    const animIndex = (champion.mesh.userData.model as any).animIndex as number
+
+    const nbFrames = (champion.mesh.userData.model as any).animations[animIndex].bones[0].frames.length
     frameSelector = settingsFolder.add(champion.mesh.userData.model, 'setFrame', 0, nbFrames)
   }
   updateFrameSelector()
@@ -59,6 +70,8 @@ function addChampionToGUI (champion: Champion): void {
       champion.championKey = championKey
       champion.skinIndex = skinIndex
 
+      loadRotationFolder()
+      loadPositionFolder()
       updateFrameSelector()
 
       updateGUI(animationSelector, champion.mesh.userData.animations)
@@ -98,7 +111,9 @@ function addChampionToGUI (champion: Champion): void {
       state.champions.splice(championId)
       gui.removeFolder(championFolder)
     }
-  }, 'delete')
+  }, 'delete').name('❌ Delete')
+
+  champion.folder = championFolder
 }
 
 function initGUI (): void {
@@ -107,30 +122,20 @@ function initGUI (): void {
       void newChampion()
     },
     exportScene: function () {
-      const report = state.champions.map((champion: Champion) => {
-        return {
-          championKey: champion.championKey,
-          skinIndex: champion.skinIndex,
-          position: {
-            x: champion.mesh.position.x,
-            y: champion.mesh.position.y,
-            z: champion.mesh.position.z
-          },
-          rotation: {
-            x: champion.mesh.rotation.x,
-            y: champion.mesh.rotation.y,
-            z: champion.mesh.rotation.z
-          },
-          setFrame: champion.mesh.userData.model.setFrame,
-          animName: champion.mesh.userData.model.animName
-        }
-      })
-      console.log(JSON.stringify(report, null, 2))
+      modalExport.open()
+    },
+    reset: function () {
+      if (state.currentSceneConfig) loadSceneConfig(state.currentSceneConfig)
+    },
+    scene: function () {
+      modalInputScene.open()
     }
   }
 
-  gui.add(obj, 'addChampion')
-  gui.add(obj, 'exportScene')
+  gui.add(obj, 'scene').name('⏳ Load Scene')
+  gui.add(obj, 'exportScene').name('📊 Export')
+  gui.add(obj, 'reset').name('🙌 Reset')
+  gui.add(obj, 'addChampion').name('➕ Add Champion')
 }
 
 function updateGUI (target: any, list: any): void {
