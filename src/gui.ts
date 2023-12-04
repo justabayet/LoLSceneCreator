@@ -46,7 +46,7 @@ function addChampionToGUI (champion: Champion): void {
   loadPositionFolder()
 
   settingsFolder.open()
-  let frameSelector = settingsFolder.add(champion.mesh.userData.model, 'setFrame', 0, 10)
+  let frameSelector = settingsFolder.add(champion.mesh.userData.model, 'setFrame', 0, 10).name('Anim Frame')
 
   function updateFrameSelector (): void {
     settingsFolder.remove(frameSelector)
@@ -54,7 +54,7 @@ function addChampionToGUI (champion: Champion): void {
     const animIndex = (champion.mesh.userData.model as any).animIndex as number
 
     const nbFrames = (champion.mesh.userData.model as any).animations[animIndex].bones[0].frames.length
-    frameSelector = settingsFolder.add(champion.mesh.userData.model, 'setFrame', 0, nbFrames)
+    frameSelector = settingsFolder.add(champion.mesh.userData.model, 'setFrame', 0, nbFrames).name('Anim Frame')
   }
   updateFrameSelector()
 
