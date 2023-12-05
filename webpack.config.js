@@ -16,6 +16,7 @@ module.exports = {
   plugins: [
     new CopyPlugin({
       patterns: [{ from: "assets", to: "assets" }],
+      patterns: [{ from: "CNAME" }],
     }),
     new HtmlWebpackPlugin({
       template: "src/index.html",
