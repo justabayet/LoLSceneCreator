@@ -48,6 +48,7 @@
   },
   "dependencies": {
     "d3-dispatch": "^3.0.1",
+    "gl-matrix": "^3.4.3",
     "pako": "^2.1.0",
     "three": "^0.159.0",
     "tingle.js": "^0.16.0"

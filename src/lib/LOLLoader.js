@@ -1,8 +1,7 @@
 import * as THREE from "three";
 import * as pako from "pako";
 import { dispatch } from "d3-dispatch";
-import * as gl from "./gl-matrix-min";
-
+import * as gl from "gl-matrix";
 /**
  * @author lolking / http://www.lolking.net/models
  * @author tengge / https://github.com/tengge1
@@ -1363,6 +1362,7 @@ function Model(options) {
   self.meshUrl = self.baseUrl + `models/${self.champion}_${self.skin}.lmesh`;
 
   self.setFrame = options.setFrame != null ? options.setFrame : 0;
+  // self.setFrame = options.setFrame;
 
   self.loaded = false;
   self.animsLoaded = false;
@@ -1715,8 +1715,9 @@ Model.prototype.loadMesh = function (buffer) {
   if (animFile && animFile.length > 0) {
     var loader = new THREE.FileLoader();
     loader.setResponseType("arraybuffer");
+    var animUrl = self.baseUrl + `models/${animFile}.lanim`;
     loader.load(
-      self.baseUrl + `models/${animFile}.lanim`,
+      animUrl,
       function (buffer) {
         self.loadAnim(buffer);
         self.dispatch.call("loadAnim");
