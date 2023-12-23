@@ -59,8 +59,6 @@ function addChampionToGUI (champion: Champion): void {
   updateFrameSelector()
 
   function loadNewChampion (champion: Champion, championKey: string, skinIndex: number): void {
-    state.scene.remove(state.ground)
-    state.groundFlag = false
     loadingOverlay.show()
 
     if (champion.mesh) state.scene.remove(champion.mesh)

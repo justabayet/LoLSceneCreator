@@ -68,8 +68,6 @@ export async function initMeshChampion (championKey: string, skinIndex: number, 
 
   const meshLol = await loader.load(championKey, skinIndex, { static: false, enableTexture: false, setFrame, animName })
 
-  state.scene.add(state.ground)
-  state.groundFlag = true
   meshLol.position.copy(position)
   meshLol.rotation.set(rotation.x, rotation.y, rotation.z)
   meshLol.userData.model.update(100)

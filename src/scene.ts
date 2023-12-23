@@ -31,9 +31,10 @@ function setupScene (): void {
       map: texture,
       depthWrite: true
     })
-    state.ground = new THREE.Mesh(new THREE.CircleGeometry(300, 100), material)
-    state.ground.rotation.x = -Math.PI / 2
-    state.ground.receiveShadow = true
+    const ground = new THREE.Mesh(new THREE.CircleGeometry(300, 100), material)
+    ground.rotation.x = -Math.PI / 2
+    ground.receiveShadow = true
+    state.scene.add(ground)
   })
 
   light = new THREE.HemisphereLight(0xffffff, 0x444444, 0.05)
@@ -90,13 +91,11 @@ function onWindowResize (): void {
 
 function animate (): void {
   requestAnimationFrame(animate)
-  const delta = clock.getDelta()
   renderer.render(state.scene, camera)
   stats.update()
   state.champions.forEach((champion) => {
     champion.mesh?.userData.model.update(clock.getElapsedTime() * 1000)
   })
-  if (state.ground && state.groundFlag) state.ground.rotateZ(0.1 * delta)
 
   const time = clock.getElapsedTime() / 10
   spotlight.position.x = Math.cos(time) * 2.5

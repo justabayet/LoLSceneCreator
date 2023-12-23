@@ -14,16 +14,12 @@ interface Champion {
 interface State {
   champions: Champion[]
   scene: THREE.Scene
-  ground?: THREE.Mesh
-  groundFlag: boolean
   currentSceneConfig?: SceneConfig
 }
 
 const state: State = {
   champions: [],
-  scene: new THREE.Scene(),
-  ground: null,
-  groundFlag: false
+  scene: new THREE.Scene()
 }
 
 const loadingOverlay = {
