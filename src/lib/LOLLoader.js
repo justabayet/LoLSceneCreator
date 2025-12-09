@@ -1358,7 +1358,7 @@ function Model(options) {
   var self = this;
   self.champion = options.champion || "1";
   self.skin = options.skin || 0;
-  self.baseUrl = "assets/";
+  self.baseUrl = "https://lolking-models.justabayet.com/";
   self.meshUrl = self.baseUrl + `models/${self.champion}_${self.skin}.lmesh`;
 
   self.setFrame = options.setFrame != null ? options.setFrame : 0;
